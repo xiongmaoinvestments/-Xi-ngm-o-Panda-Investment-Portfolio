@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xióngmāo Investment Portfolio | Proposal & Sign-Up Guide</title>
+    <title>XIÓNGMÃO Investment Portfolio | Core Stock-Options Trading</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,566 +12,486 @@
             theme: {
                 extend: {
                     colors: {
-                        panda: {
-                            dark: '#0f172a',
-                            card: '#1e293b',
-                            accent: '#10b981',
-                            accentHover: '#059669',
-                            muted: '#64748b',
-                            border: '#334155'
+                        brand: {
+                            dark: '#0B132B',
+                            card: '#1C2541',
+                            green: '#064E3B',
+                            emerald: '#10B981',
+                            gold: '#F59E0B',
+                            goldLight: '#FBBF24',
+                            light: '#F8FAFC'
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.15) 0%, rgba(11, 19, 43, 1) 70%);
+        }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+<body class="bg-slate-50 text-slate-900 dark:bg-[#0B132B] dark:text-slate-100 antialiased selection:bg-emerald-500 selection:text-white transition-colors duration-300">
 
-    <!-- Top Navigation -->
-    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-[#0B132B]/80 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shadow-lg shadow-emerald-900/20 text-white font-black text-lg">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-amber-500 flex items-center justify-center font-bold text-xl text-white shadow-lg">
                     🐼
                 </div>
                 <div>
-                    <span class="font-bold text-lg tracking-wide text-white">XIÓNGMĀO <span class="text-emerald-400">INVESTMENT PORTFOLIO</span></span>
-                    <span class="block text-xs text-slate-400 uppercase tracking-wider">Core Stock-Options Trading Program</span>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-slate-900 via-slate-800 to-amber-600 dark:from-white dark:via-slate-200 dark:to-amber-400 bg-clip-text text-transparent">XIÓNGMÃO</span>
+                    <span class="block text-xs font-semibold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">Investment Portfolio</span>
                 </div>
             </div>
-            
-            <div class="flex items-center space-x-4">
-                <div class="hidden sm:flex items-center space-x-2 text-xs text-emerald-400 bg-emerald-950/50 border border-emerald-800/50 px-3 py-1.5 rounded-full">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span>Confidential Investment Proposal</span>
-                </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#overview" class="hover:text-amber-500 dark:hover:text-amber-400 transition">Overview</a>
+                <a href="#calculator" class="hover:text-amber-500 dark:hover:text-amber-400 transition">ROI Calculator</a>
+                <a href="#tiers" class="hover:text-amber-500 dark:hover:text-amber-400 transition">Tiers</a>
+                <a href="#comparison" class="hover:text-amber-500 dark:hover:text-amber-400 transition">Schedules</a>
+                <a href="#register" class="hover:text-amber-500 dark:hover:text-amber-400 transition">Register</a>
+            </nav>
+            <div class="flex items-center space-x-3">
+                <!-- Theme Toggle Button -->
+                <button onclick="toggleTheme()" id="theme-toggle-btn" class="p-2.5 rounded-xl bg-slate-200 dark:bg-[#1C2541] border border-slate-300 dark:border-slate-700 text-amber-600 dark:text-amber-400 hover:text-amber-500 transition shadow-lg" title="Toggle Light / Dark Mode">
+                    <i id="theme-icon" class="fa-solid fa-sun text-sm"></i>
+                </button>
+
+                <a href="#register" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 shadow-lg shadow-amber-500/20 transition transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-bolt mr-2"></i> Invest Now
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-10 flex-grow">
-        
-        <!-- Hero Cover Section -->
-        <div class="bg-gradient-to-r from-slate-900 via-slate-900 to-emerald-950/40 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div class="absolute -right-10 -bottom-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="space-y-4 max-w-2xl">
-                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">
-                    <i class="fa-solid fa-file-shield"></i>
-                    <span>INVESTMENT PROPOSAL & SIGN-UP GUIDE</span>
-                </div>
-                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                    XIÓNGMĀO INVESTMENT PORTFOLIO
-                </h1>
-                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
-                    Core stock-options trading program structured across 3-cycle payout frameworks with selectable Standard (20–25 days/cycle) or 2x High Yield (40–50 days/cycle) tier options, backed by our Silver Lining guarantee.
-                </p>
-                <div class="pt-2 flex flex-wrap gap-4">
-                    <a href="#calculator" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs rounded-xl shadow-lg transition-all flex items-center space-x-2">
-                        <i class="fa-solid fa-calculator"></i>
-                        <span>Custom Tier Calculator</span>
-                    </a>
-                    <a href="#silver-lining" class="px-5 py-2.5 bg-amber-600/20 hover:bg-amber-600/30 text-amber-300 font-semibold text-xs rounded-xl border border-amber-500/40 transition-all flex items-center space-x-2">
-                        <i class="fa-solid fa-medal"></i>
-                        <span>Silver Lining Policy</span>
-                    </a>
-                </div>
+    <!-- Hero Section -->
+    <section class="relative hero-gradient py-20 lg:py-32 overflow-hidden border-b border-slate-200 dark:border-slate-800/60">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#10B981_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Confidential Investment Proposal • Base Currency GH¢</span>
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-6 max-w-4xl mx-auto leading-tight text-slate-900 dark:text-white">
+                Core Stock-Options <span class="bg-gradient-to-r from-emerald-600 to-amber-500 dark:from-emerald-400 dark:to-amber-400 bg-clip-text text-transparent">Trading Program</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10 font-normal leading-relaxed">
+                Structured for steady income generation starting from <strong class="text-emerald-600 dark:text-emerald-400">GH¢2,000</strong> across 3 consecutive payout cycles (20–25 days per cycle).
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#calculator" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-slate-950 shadow-xl shadow-emerald-500/20 transition transform hover:-translate-y-0.5 flex items-center justify-center">
+                    <span>Calculate Your ROI</span>
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#register" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-white dark:bg-[#1C2541] hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white shadow-xl transition flex items-center justify-center">
+                    <i class="fa-solid fa-shield-halved text-amber-500 dark:text-amber-400 mr-2"></i> Official Channels
+                </a>
             </div>
-            <div class="w-full lg:w-96 bg-slate-950/80 border border-slate-800 rounded-xl p-4 shadow-xl">
-                <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3 flex items-center justify-between">
-                    <span>Trading Engine Preview</span>
-                    <span class="text-emerald-400 font-mono">1D NSE</span>
+            
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
+                <div class="bg-white dark:bg-[#1C2541]/50 backdrop-blur p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="text-3xl font-black text-amber-600 dark:text-amber-400 mb-1">GH¢2k - GH¢100k</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">Custom Allocation Range</div>
                 </div>
-                <div class="bg-slate-900 rounded-lg p-3 border border-slate-800/80 space-y-2 font-mono text-xs">
-                    <div class="flex justify-between text-slate-400">
-                        <span>NIFTY JUN FUT</span>
-                        <span class="text-emerald-400">18738.85</span>
-                    </div>
-                    <div class="text-[10px] text-slate-500">Buy 100 NIFTY JUN FUT @ 17572.45 limit</div>
-                    <div class="h-16 bg-slate-950 rounded flex items-end px-2 pb-1 space-x-1">
-                        <div class="w-1/6 bg-rose-500 h-8"></div>
-                        <div class="w-1/6 bg-emerald-500 h-12"></div>
-                        <div class="w-1/6 bg-emerald-500 h-10"></div>
-                        <div class="w-1/6 bg-rose-500 h-6"></div>
-                        <div class="w-1/6 bg-emerald-500 h-14"></div>
-                        <div class="w-1/6 bg-emerald-500 h-16"></div>
-                    </div>
+                <div class="bg-white dark:bg-[#1C2541]/50 backdrop-blur p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="text-3xl font-black text-emerald-600 dark:text-emerald-400 mb-1">3 Cycles</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">20–25 Days Per Cycle</div>
+                </div>
+                <div class="bg-white dark:bg-[#1C2541]/50 backdrop-blur p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="text-3xl font-black text-amber-600 dark:text-amber-400 mb-1">GH¢9,000</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">Total 3-Cycle Payout</div>
+                </div>
+                <div class="bg-white dark:bg-[#1C2541]/50 backdrop-blur p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="text-3xl font-black text-emerald-600 dark:text-emerald-400 mb-1">150.0%</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">Total Standard ROI</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Strategy Overview Section -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3">
-                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg border border-emerald-500/20">
-                    <i class="fa-solid fa-gears"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white">Core Trading Mechanism</h3>
-                <p class="text-sm text-slate-400 leading-relaxed">
-                    Powered by systematic stock-options trading strategies designed to capture consistent market yield across 3 consecutive payout cycles.
-                </p>
+    <!-- Strategy Overview Section -->
+    <section id="overview" class="py-24 bg-white dark:bg-[#0B132B] relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase mb-3">Strategy Overview</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Systematic Market Capture</h3>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">Built upon robust quantitative analytics and disciplined options writing frameworks across 3 structured cycles.</p>
             </div>
 
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3">
-                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg border border-emerald-500/20">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 dark:bg-[#1C2541] p-8 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 transition group shadow-sm">
+                    <div class="w-14 h-14 rounded-xl bg-emerald-100 dark:bg-emerald-950 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Core Trading Mechanism</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Powered by systematic stock-options trading strategies designed to capture consistent market yield across high-liquidity equity indices.
+                    </p>
                 </div>
-                <h3 class="text-lg font-bold text-white">Selectable Cycle Horizons</h3>
-                <p class="text-sm text-slate-400 leading-relaxed">
-                    Choose Standard 3-Cycle (20–25 days per cycle) or 2x High Yield 3-Cycle (40–50 days per cycle, 2x duration &amp; 2x cycle yield).
-                </p>
-            </div>
-
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3">
-                <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-lg border border-amber-500/20">
-                    <i class="fa-solid fa-medal"></i>
+                <div class="bg-slate-50 dark:bg-[#1C2541] p-8 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-amber-500/50 transition group shadow-sm">
+                    <div class="w-14 h-14 rounded-xl bg-amber-100 dark:bg-amber-950 border border-amber-500/30 flex items-center justify-center text-amber-600 dark:text-amber-400 text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">3-Cycle Payout Structure</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Features three consecutive payouts delivered every 20–25 days across rolling trading cycles for reliable income generation starting from GH¢2,000.
+                    </p>
                 </div>
-                <h3 class="text-lg font-bold text-white">Silver Lining Guarantee</h3>
-                <p class="text-sm text-slate-400 leading-relaxed">
-                    For each payout window missed, you become eligible for an upgraded 2x payout protection.
-                </p>
+                <div class="bg-slate-50 dark:bg-[#1C2541] p-8 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-red-500/50 transition group shadow-sm">
+                    <div class="w-14 h-14 rounded-xl bg-red-100 dark:bg-red-950 border border-red-500/30 flex items-center justify-center text-red-600 dark:text-red-400 text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Risk Management Note</h4>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        While structured returns are actively targeted through options hedging, returns are non-guaranteed and market exposure losses are possible.
+                    </p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- Silver Lining Highlight Card -->
-        <div id="silver-lining" class="bg-gradient-to-r from-amber-950/40 via-slate-900 to-slate-900 border border-amber-500/30 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-4">
-            <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-xl border border-amber-500/30">
+    <!-- Silver Lining Guarantee Notice Banner -->
+    <section class="py-8 bg-amber-500/10 border-y border-amber-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-500 text-xl shrink-0">
                     <i class="fa-solid fa-shield-heart"></i>
                 </div>
                 <div>
-                    <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Investor Protection Policy</span>
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-white">The "Silver Lining" Guarantee</h2>
+                    <h4 class="text-base font-black text-slate-900 dark:text-white">Silver Lining Guarantee</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-300">For each payout window missed, you are automatically eligible for a <strong>2x payment</strong> on the next payout window.</p>
                 </div>
             </div>
-            <p class="text-slate-300 text-sm leading-relaxed">
-                We maintain full transparency and accountability. In the rare event that a scheduled payout window is delayed or missed past its scheduled cycle threshold (20–25 days for Standard or 40–50 days for 2x High Yield), our <strong class="text-amber-400">Silver Lining Policy</strong> ensures that you are automatically eligible for an enhanced <strong class="text-amber-400">2x payout</strong> for each missed window, safeguarding your capital and compounding your trust.
-            </p>
+            <div class="shrink-0">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider">
+                    Investor Protection Clause
+                </span>
+            </div>
         </div>
+    </section>
 
-        <!-- Interactive Custom Tier & Yield Calculator Section -->
-        <div id="calculator" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-slate-800">
-                <div>
-                    <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Interactive Tool</span>
-                    <h2 class="text-xl font-bold text-white flex items-center space-x-2 mt-1">
-                        <i class="fa-solid fa-calculator text-emerald-400"></i>
-                        <span>Custom Tier & 3-Cycle Yield Calculator</span>
-                    </h2>
-                </div>
-                <span class="text-xs text-slate-400 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800">Select Tier Option & Slider</span>
+    <!-- Interactive ROI Calculator Section -->
+    <section id="calculator" class="py-24 bg-slate-100 dark:bg-[#121A33] border-y border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase mb-3">Interactive Tool</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Investment ROI Calculator</h3>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">Slide to select your investment amount (GH¢2,000 to GH¢100,000) and view explicit 20–25 day cycle payout breakdown panels instantly.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                <!-- Sliders & Selectors (2 Columns) -->
-                <div class="lg:col-span-2 space-y-6">
-                    <!-- Yield Tier Selector -->
-                    <div class="space-y-2">
-                        <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider block">Select Payout Strategy / Tier Option</label>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <button onclick="setYieldMode('standard')" id="btn-mode-standard" class="p-4 rounded-xl border border-emerald-500 bg-emerald-950/30 text-left transition-all space-y-1 group">
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Standard 3-Cycle</span>
-                                    <i class="fa-solid fa-circle-check text-emerald-400" id="icon-mode-standard"></i>
-                                </div>
-                                <div class="text-sm font-semibold text-white">20–25 Days Per Cycle (3 Cycles)</div>
-                                <p class="text-[11px] text-slate-400">e.g., GH₵ 3,000 &times; 3 cycles (GH₵ 9,000 total) for GH₵ 2,000 base.</p>
-                            </button>
-
-                            <button onclick="setYieldMode('highyield')" id="btn-mode-highyield" class="p-4 rounded-xl border border-slate-800 bg-slate-950/60 text-left transition-all space-y-1 group hover:border-slate-700">
-                                <div class="flex justify-between items-center">
-                                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider group-hover:text-amber-400">2x High Yield Tier</span>
-                                    <i class="fa-regular fa-circle text-slate-500" id="icon-mode-highyield"></i>
-                                </div>
-                                <div class="text-sm font-semibold text-white">40–50 Days Per Cycle (2x Days &times; 3 Cycles)</div>
-                                <p class="text-[11px] text-slate-400">e.g., GH₵ 6,000 &times; 3 cycles (GH₵ 18,000 total) for GH₵ 2,000 base.</p>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Capital Slider -->
-                    <div class="space-y-3 bg-slate-950/60 p-5 rounded-xl border border-slate-800/80">
-                        <div class="flex justify-between items-center">
-                            <label class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Initial Investment Capital</label>
-                            <span id="display-capital" class="text-lg font-black text-emerald-400 font-mono">GH₵ 2,000</span>
-                        </div>
-                        <input type="range" id="input-capital" min="2000" max="50000" step="500" value="2000" oninput="updateCalculator()" class="w-full accent-emerald-500 bg-slate-800 h-2.5 rounded-lg cursor-pointer">
-                        <div class="flex justify-between text-[10px] text-slate-500 font-mono">
-                            <span>GH₵ 2,000 (Tier A Base)</span>
-                            <span>GH₵ 25,000</span>
-                            <span>GH₵ 50,000+</span>
-                        </div>
-                    </div>
-
-                    <!-- Dynamic 3-Cycle Breakdown View -->
-                    <div id="breakdown-container" class="grid grid-cols-3 gap-3">
-                        <div class="bg-slate-950/60 border border-slate-800 rounded-xl p-3.5 text-center space-y-1">
-                            <span id="label-cycle-1" class="text-[10px] uppercase font-bold text-slate-400 block">Cycle 1 (20–25d)</span>
-                            <span id="cycle-1" class="text-sm font-black text-white font-mono">GH₵ 3,000</span>
-                        </div>
-                        <div class="bg-slate-950/60 border border-slate-800 rounded-xl p-3.5 text-center space-y-1">
-                            <span id="label-cycle-2" class="text-[10px] uppercase font-bold text-slate-400 block">Cycle 2 (20–25d)</span>
-                            <span id="cycle-2" class="text-sm font-black text-white font-mono">GH₵ 3,000</span>
-                        </div>
-                        <div class="bg-slate-950/60 border border-slate-800 rounded-xl p-3.5 text-center space-y-1">
-                            <span id="label-cycle-3" class="text-[10px] uppercase font-bold text-slate-400 block">Cycle 3 (20–25d)</span>
-                            <span id="cycle-3" class="text-sm font-black text-white font-mono">GH₵ 3,000</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Result Box (1 Column) -->
-                <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-5 shadow-inner">
-                    <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider border-b border-slate-800 pb-3 flex justify-between items-center">
-                        <span>3-Cycle Summary</span>
-                        <span id="badge-mode" class="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20 font-bold">Standard (20–25d/cycle)</span>
-                    </div>
-
-                    <div class="space-y-4">
+            <div class="max-w-4xl mx-auto bg-white dark:bg-[#1C2541] p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <!-- Controls with Range Slider -->
+                    <div class="space-y-6">
                         <div>
-                            <span class="text-[11px] text-slate-400 block uppercase">Total Cumulative Payout (3 Cycles)</span>
-                            <span id="res-payout" class="text-2xl font-black text-white font-mono">GH₵ 9,000</span>
+                            <div class="flex justify-between items-center mb-3">
+                                <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Investment Allocation</label>
+                                <span id="slider-val-label" class="text-lg font-black text-emerald-600 dark:text-emerald-400">GH¢2,000</span>
+                            </div>
+                            <input type="range" id="investment-slider" min="2000" max="100000" step="1000" value="2000" oninput="handleSliderInput(this.value)" class="w-full h-2.5 bg-slate-200 dark:bg-[#0B132B] rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                            <div class="flex justify-between text-xs text-slate-500 dark:text-slate-400 font-mono mt-2">
+                                <span>GH¢2,000</span>
+                                <span>GH¢50,000</span>
+                                <span>GH¢100,000</span>
+                            </div>
                         </div>
+
                         <div>
-                            <span class="text-[11px] text-slate-400 block uppercase">Estimated Net Profit</span>
-                            <span id="res-profit" class="text-2xl font-black text-emerald-400 font-mono">+GH₵ 7,000</span>
-                        </div>
-                        <div class="pt-3 border-t border-slate-800 flex justify-between items-center text-xs">
-                            <span class="text-slate-400">Total Return on Investment:</span>
-                            <span id="res-roi" class="font-black text-emerald-400 text-sm">350.0%</span>
+                            <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Payout Schedule</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button type="button" onclick="setSchedule('standard')" class="sch-btn px-4 py-4 rounded-2xl border border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 font-bold text-center text-slate-900 dark:text-white leading-snug transition" id="btn-sch-standard">
+                                    Standard<br>(3 Cycles)
+                                </button>
+                                <button type="button" onclick="setSchedule('double')" class="sch-btn px-4 py-4 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#0B132B] font-bold text-center text-slate-700 dark:text-white leading-snug transition" id="btn-sch-double">
+                                    Double<br>Payout (x2)
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    <a href="#channels" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all text-center block">
-                        Lock In This Tier
-                    </a>
+                    <!-- Results Panel with Explicit Breakdown Panels -->
+                    <div class="bg-slate-50 dark:bg-[#0B132B] p-8 rounded-2xl border border-slate-200 dark:border-slate-800/80 shadow-xl flex flex-col justify-between">
+                        <div>
+                            <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold mb-2">3-CYCLE PROJECTION SUMMARY</div>
+                            <div id="selected-tier-label" class="text-xl font-black text-amber-600 dark:text-amber-400 leading-tight mb-6">Tier A (GH¢2,000 Investment)</div>
+
+                            <!-- Explicit Cycle Breakdown Panels -->
+                            <div class="space-y-3 mb-6">
+                                <!-- Cycle 1 Panel -->
+                                <div class="bg-white dark:bg-[#1C2541] p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center shadow-sm">
+                                    <div>
+                                        <div id="label-c1" class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Cycle 1 (20–25 Days)</div>
+                                        <div id="sub-c1" class="text-[10px] text-slate-400">First Payout Window</div>
+                                    </div>
+                                    <div id="calc-c1" class="text-sm font-black text-slate-900 dark:text-white">GH¢3,000</div>
+                                </div>
+                                <!-- Cycle 2 Panel -->
+                                <div class="bg-white dark:bg-[#1C2541] p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center shadow-sm">
+                                    <div>
+                                        <div id="label-c2" class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Cycle 2 (20–25 Days)</div>
+                                        <div id="sub-c2" class="text-[10px] text-slate-400">Second Payout Window</div>
+                                    </div>
+                                    <div id="calc-c2" class="text-sm font-black text-slate-900 dark:text-white">GH¢3,000</div>
+                                </div>
+                                <!-- Cycle 3 Panel -->
+                                <div class="bg-white dark:bg-[#1C2541] p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 flex justify-between items-center shadow-sm">
+                                    <div>
+                                        <div id="label-c3" class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Cycle 3 (20–25 Days)</div>
+                                        <div id="sub-c3" class="text-[10px] text-slate-400">Final Payout Window</div>
+                                    </div>
+                                    <div id="calc-c3" class="text-sm font-black text-slate-900 dark:text-white">GH¢3,000</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Totals & ROI -->
+                        <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-slate-500 dark:text-slate-400">Total Payout (3 Cycles):</span>
+                                <span id="res-total-payout" class="font-black text-slate-900 dark:text-white font-mono">GH¢9,000</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-slate-500 dark:text-slate-400">Net Profit:</span>
+                                <span id="res-net-profit" class="font-black text-emerald-600 dark:text-emerald-400 font-mono">+GH¢7,000</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-slate-500 dark:text-slate-400">Return on Investment (ROI):</span>
+                                <span id="res-roi" class="font-black text-amber-600 dark:text-amber-400 font-mono">350.0%</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Tier Breakdown Table Section -->
-        <div id="tiers" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <div>
-                    <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Investment Return Analysis</span>
-                    <h2 class="text-xl font-bold text-white flex items-center space-x-2 mt-1">
-                        <i class="fa-solid fa-table-cells text-emerald-400"></i>
-                        <span>Tier Breakdown Matrix (Standard vs. 2x High Yield)</span>
-                    </h2>
-                </div>
-                <span class="text-xs text-slate-400 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800">Values in Ghana Cedis (GH₵)</span>
+    <!-- Tiers Breakdown Table Section -->
+    <section id="tiers" class="py-24 bg-white dark:bg-[#0B132B]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-amber-600 dark:text-amber-400 uppercase mb-3">Portfolio Tiers</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Standard & Double Payout Matrix</h3>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">Compare structured returns across Tier A through Tier D allocations in Ghana Cedis (GH¢).</p>
             </div>
 
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-sm text-slate-300">
-                    <thead class="bg-slate-950 text-xs uppercase text-slate-400 tracking-wider border-b border-slate-800">
+            <div class="overflow-x-auto bg-slate-50 dark:bg-[#1C2541] rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl">
+                <table class="w-full text-left text-sm text-slate-600 dark:text-slate-300">
+                    <thead class="bg-slate-200/50 dark:bg-[#0B132B] text-xs uppercase text-slate-500 dark:text-slate-400 tracking-wider border-b border-slate-200 dark:border-slate-800">
                         <tr>
-                            <th class="py-3 px-4">Tier</th>
-                            <th class="py-3 px-4">Initial Investment</th>
-                            <th class="py-3 px-4">Standard 3-Cycle (20–25d/cycle)</th>
-                            <th class="py-3 px-4">Standard Net Profit</th>
-                            <th class="py-3 px-4">Standard ROI %</th>
-                            <th class="py-3 px-4 text-amber-400">2x High Yield (40–50d/cycle)</th>
-                            <th class="py-3 px-4 text-amber-400">2x Net Profit</th>
-                            <th class="py-3 px-4 text-right text-amber-400">2x ROI %</th>
+                            <th class="py-4 px-6 font-bold">Tier</th>
+                            <th class="py-4 px-6 font-bold">Initial Capital</th>
+                            <th class="py-4 px-6 font-bold">Cycle Payout (Standard)</th>
+                            <th class="py-4 px-6 font-bold">Total 3-Cycle Payout</th>
+                            <th class="py-4 px-6 font-bold">Net Profit</th>
+                            <th class="py-4 px-6 font-bold text-right">Standard ROI</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-800/60 text-xs sm:text-sm font-medium">
-                        <tr class="hover:bg-slate-950/40">
-                            <td class="py-3.5 px-4 font-bold text-white">Tier A</td>
-                            <td class="py-3.5 px-4">GH₵ 2,000</td>
-                            <td class="py-3.5 px-4">GH₵ 9,000 (3 &times; 3k)</td>
-                            <td class="py-3.5 px-4 text-emerald-400">GH₵ 7,000</td>
-                            <td class="py-3.5 px-4 text-emerald-400 font-bold">350.0%</td>
-                            <td class="py-3.5 px-4 text-amber-400">GH₵ 18,000 (3 &times; 6k)</td>
-                            <td class="py-3.5 px-4 text-amber-400">GH₵ 16,000</td>
-                            <td class="py-3.5 px-4 text-right text-amber-400 font-bold">800.0%</td>
+                    <tbody class="divide-y divide-slate-200 dark:divide-slate-800/80 font-medium text-xs sm:text-sm">
+                        <tr class="hover:bg-slate-100 dark:hover:bg-slate-800/50 transition">
+                            <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Tier A</td>
+                            <td class="py-4 px-6">GH¢2,000</td>
+                            <td class="py-4 px-6">GH¢3,000 × 3</td>
+                            <td class="py-4 px-6 font-bold text-emerald-600 dark:text-emerald-400">GH¢9,000</td>
+                            <td class="py-4 px-6 text-slate-900 dark:text-white">+GH¢7,000</td>
+                            <td class="py-4 px-6 text-right font-bold text-amber-600 dark:text-amber-400">350.0%</td>
                         </tr>
-                        <tr class="bg-slate-950/30 hover:bg-slate-950/40">
-                            <td class="py-3.5 px-4 font-bold text-white">Tier B</td>
-                            <td class="py-3.5 px-4">GH₵ 3,000</td>
-                            <td class="py-3.5 px-4">GH₵ 12,000 (3 &times; 4k)</td>
-                            <td class="py-3.5 px-4 text-emerald-400">GH₵ 9,000</td>
-                            <td class="py-3.5 px-4 text-emerald-400 font-bold">300.0%</td>
-                            <td class="py-3.5 px-4 text-amber-400">GH₵ 24,000 (3 &times; 8k)</td>
-                            <td class="py-3.5 px-4 text-amber-400">GH₵ 21,000</td>
-                            <td class="py-3.5 px-4 text-right text-amber-400 font-bold">700.0%</td>
+                        <tr class="hover:bg-slate-100 dark:hover:bg-slate-800/50 transition">
+                            <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Tier B</td>
+                            <td class="py-4 px-6">GH¢3,000</td>
+                            <td class="py-4 px-6">GH¢4,500 × 3</td>
+                            <td class="py-4 px-6 font-bold text-emerald-600 dark:text-emerald-400">GH¢13,500</td>
+                            <td class="py-4 px-6 text-slate-900 dark:text-white">+GH¢10,500</td>
+                            <td class="py-4 px-6 text-right font-bold text-amber-600 dark:text-amber-400">350.0%</td>
                         </tr>
-                        <tr class="hover:bg-slate-950/40">
-                            <td class="py-3.5 px-4 font-bold text-white">Tier C</td>
-                            <td class="py-3.5 px-4">GH₵ 4,000</td>
-                            <td class="py-3.5 px-4">GH₵ 15,000 (3 &times; 5k)</td>
-                            <td class="py-3.5 px-4 text-emerald-400">GH₵ 11,000</td>
-                            <td class="py-3.5 px-4 text-emerald-400 font-bold">275.0%</td>
-                            <td class="py-3.5 px-4 text-amber-400">GH₵ 30,000 (3 &times; 10k)</td>
-                            <td class="py-3.5 px-4 text-amber-400">GH₵ 26,000</td>
-                            <td class="py-3.5 px-4 text-right text-amber-400 font-bold">650.0%</td>
+                        <tr class="hover:bg-slate-100 dark:hover:bg-slate-800/50 transition">
+                            <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Tier C</td>
+                            <td class="py-4 px-6">GH¢4,000</td>
+                            <td class="py-4 px-6">GH¢6,000 × 3</td>
+                            <td class="py-4 px-6 font-bold text-emerald-600 dark:text-emerald-400">GH¢18,000</td>
+                            <td class="py-4 px-6 text-slate-900 dark:text-white">+GH¢14,000</td>
+                            <td class="py-4 px-6 text-right font-bold text-amber-600 dark:text-amber-400">350.0%</td>
                         </tr>
-                        <tr class="bg-slate-950/30 hover:bg-slate-950/40">
-                            <td class="py-3.5 px-4 font-bold text-white">Tier D</td>
-                            <td class="py-3.5 px-4">GH₵ 5,000</td>
-                            <td class="py-3.5 px-4">GH₵ 18,000 (3 &times; 6k)</td>
-                            <td class="py-3.5 px-4 text-emerald-400">GH₵ 13,000</td>
-                            <td class="py-3.5 px-4 text-emerald-400 font-bold">260.0%</td>
-                            <td class="py-3.5 px-4 text-amber-400">GH₵ 36,000 (3 &times; 12k)</td>
-                            <td class="py-3.5 px-4 text-amber-400">GH₵ 31,000</td>
-                            <td class="py-3.5 px-4 text-right text-amber-400 font-bold">620.0%</td>
+                        <tr class="hover:bg-slate-100 dark:hover:bg-slate-800/50 transition">
+                            <td class="py-4 px-6 font-bold text-slate-900 dark:text-white">Tier D</td>
+                            <td class="py-4 px-6">GH¢5,000</td>
+                            <td class="py-4 px-6">GH¢7,500 × 3</td>
+                            <td class="py-4 px-6 font-bold text-emerald-600 dark:text-emerald-400">GH¢22,500</td>
+                            <td class="py-4 px-6 text-slate-900 dark:text-white">+GH¢17,500</td>
+                            <td class="py-4 px-6 text-right font-bold text-amber-600 dark:text-amber-400">350.0%</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+    </section>
 
-        <!-- Schedule & Silver Lining Comparison Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Payout Structure Comparison Card -->
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6 relative overflow-hidden">
-                <div class="flex items-center justify-between">
-                    <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold border border-emerald-500/20">FLEXIBLE STRATEGIES</span>
-                    <span class="text-2xl font-black text-emerald-400">3-Cycle Horizons</span>
-                </div>
-                <div>
-                    <h3 class="text-xl font-extrabold text-white">Strategy Comparison</h3>
-                    <p class="text-xs text-slate-400 mt-1">Choose between Standard or 2x High Yield cycle durations</p>
-                </div>
-                <ul class="space-y-3 text-sm text-slate-300">
-                    <li class="flex items-start space-x-3">
-                        <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
-                        <span><strong>Standard 3-Cycle:</strong> 20–25 days per cycle across 3 consecutive payouts (e.g., GH₵ 3,000 &times; 3)</span>
-                    </li>
-                    <li class="flex items-start space-x-3">
-                        <i class="fa-solid fa-check text-amber-400 mt-1"></i>
-                        <span><strong>2x High Yield 3-Cycle:</strong> 2x the days per cycle (40–50 days per cycle) for 2x cycle payouts (e.g., GH₵ 6,000 &times; 3)</span>
-                    </li>
-                </ul>
+    <!-- Registration & Official Channels Section -->
+    <section id="register" class="py-24 bg-slate-100 dark:bg-[#121A33] border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase mb-3">Onboarding</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Secure Remittance & Registration</h3>
+                <p class="text-slate-600 dark:text-slate-400 mt-4">Complete your investment onboarding through verified payment gateways and official contact channels.</p>
             </div>
 
-            <!-- Silver Lining Policy Card -->
-            <div class="bg-slate-900 border border-amber-500/30 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6 relative overflow-hidden">
-                <div class="flex items-center justify-between">
-                    <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs font-bold border border-amber-500/20">INVESTOR PROTECTION</span>
-                    <span class="text-2xl font-black text-amber-400">2x Payout Eligible</span>
-                </div>
-                <div>
-                    <h3 class="text-xl font-extrabold text-white">Silver Lining Guarantee</h3>
-                    <p class="text-xs text-slate-400 mt-1">Compensation for delayed or missed windows</p>
-                </div>
-                <ul class="space-y-3 text-sm text-slate-300">
-                    <li class="flex items-start space-x-3">
-                        <i class="fa-solid fa-medal text-amber-400 mt-1"></i>
-                        <span><strong>Missed Window Benefit:</strong> For each payout window missed, you become eligible for a 2x payout</span>
-                    </li>
-                    <li class="flex items-start space-x-3">
-                        <i class="fa-solid fa-shield-halved text-amber-400 mt-1"></i>
-                        <span><strong>Risk Mitigation:</strong> Automatic protection honoring your trust and capital commitment</span>
-                    </li>
-                    <li class="flex items-start space-x-3">
-                        <i class="fa-solid fa-headset text-amber-400 mt-1"></i>
-                        <span><strong>Support:</strong> Claim or verify status instantly via WhatsApp assistance</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Registration Requirements Section -->
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
-            <div>
-                <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Account Onboarding</span>
-                <h2 class="text-xl font-bold text-white flex items-center space-x-2 mt-1">
-                    <i class="fa-solid fa-user-check text-emerald-400"></i>
-                    <span>1. Required Sign-Up Information</span>
-                </h2>
-                <p class="text-xs text-slate-400 mt-1">Please provide the following details to complete your account registration:</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-slate-950 border border-slate-800 rounded-xl p-5 space-y-2">
-                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-id-card"></i>
-                    </div>
-                    <h4 class="font-bold text-white">Full Names</h4>
-                    <p class="text-xs text-slate-400">As stated on official identity documents.</p>
-                </div>
-
-                <div class="bg-slate-950 border border-slate-800 rounded-xl p-5 space-y-2">
-                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <h4 class="font-bold text-white">WhatsApp Number</h4>
-                    <p class="text-xs text-slate-400">Primary contact for communication and updates.</p>
-                </div>
-
-                <div class="bg-slate-950 border border-slate-800 rounded-xl p-5 space-y-2">
-                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-mobile-screen-button"></i>
-                    </div>
-                    <h4 class="font-bold text-white">Remittance MoMo Details</h4>
-                    <p class="text-xs text-slate-400">MoMo Number & Full MoMo Account Name.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Official Channels & Payment Section -->
-        <div id="channels" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl space-y-6">
-            <div>
-                <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Secure Remittance</span>
-                <h2 class="text-xl font-bold text-white flex items-center space-x-2 mt-1">
-                    <i class="fa-solid fa-wallet text-emerald-400"></i>
-                    <span>2. Payment & Contact Details</span>
-                </h2>
-                <p class="text-xs text-slate-400 mt-1">Submit your sign-up information and transfer deposits through verified channels:</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <a href="https://paystack.shop/pay/nlcyo5cl-v" target="_blank" class="bg-slate-950 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 transition-all flex flex-col justify-between space-y-4 group">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-lg">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Paystack Card -->
+                <a href="https://paystack.shop/pay/nlcyo5cl-v" target="_blank" class="bg-white dark:bg-[#1C2541] p-8 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition shadow-lg group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition">
                             <i class="fa-solid fa-credit-card"></i>
                         </div>
-                        <div>
-                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Payment Gateway</span>
-                            <h4 class="font-bold text-white text-sm group-hover:text-emerald-400 transition-colors">Paystack Link</h4>
-                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Paystack Checkout</h4>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Secure card and mobile money gateway for automated deposits.</p>
                     </div>
-                    <span class="text-xs text-emerald-400 font-mono truncate">paystack.shop/pay/nlcyo5cl-v &rarr;</span>
+                    <span class="inline-flex items-center text-sm font-bold text-emerald-600 dark:text-emerald-400 group-hover:translate-x-1 transition">
+                        Pay via Paystack <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </span>
                 </a>
 
-                <div class="bg-slate-950 border border-slate-800 rounded-xl p-5 flex flex-col justify-between space-y-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold text-lg">
-                            <i class="fa-solid fa-phone-volume"></i>
-                        </div>
-                        <div>
-                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Direct MoMo</span>
-                            <h4 class="font-bold text-white text-sm">Telecel Payment</h4>
-                        </div>
-                    </div>
+                <!-- Telecel MoMo Card -->
+                <div class="bg-white dark:bg-[#1C2541] p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-lg flex flex-col justify-between">
                     <div>
-                        <span class="text-xs font-mono font-bold text-white block">0500353250</span>
-                        <span class="text-[10px] text-slate-400">Justice Barnor</span>
+                        <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center text-xl font-bold mb-6">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Direct Telecel MoMo</h4>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Direct merchant transfer details for remittance:</p>
+                        <div class="bg-slate-100 dark:bg-[#0B132B] p-4 rounded-xl font-mono text-sm space-y-1">
+                            <div class="font-bold text-amber-600 dark:text-amber-400">0500353250</div>
+                            <div class="text-slate-500 text-xs">Justice Barnor</div>
+                        </div>
                     </div>
                 </div>
 
-                <a href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" class="bg-slate-950 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-5 transition-all flex flex-col justify-between space-y-4 group">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg">
+                <!-- WhatsApp Inquiry Card -->
+                <a href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" class="bg-white dark:bg-[#1C2541] p-8 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 transition shadow-lg group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition">
                             <i class="fa-brands fa-whatsapp"></i>
                         </div>
-                        <div>
-                            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Direct Inquiry</span>
-                            <h4 class="font-bold text-white text-sm group-hover:text-emerald-400 transition-colors">WhatsApp Chat</h4>
-                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">WhatsApp Support</h4>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Verify payment proof and register your allocation directly with our team.</p>
                     </div>
-                    <span class="text-xs text-emerald-400 font-mono truncate">wa.me/message/D5B5Q7RX4DHDP1 &rarr;</span>
+                    <span class="inline-flex items-center text-sm font-bold text-emerald-600 dark:text-emerald-400 group-hover:translate-x-1 transition">
+                        Chat on WhatsApp <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </span>
                 </a>
             </div>
         </div>
-
-        <!-- Call to Action Banner -->
-        <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-slate-900 border border-emerald-800/40 rounded-2xl p-8 text-center space-y-4 shadow-2xl">
-            <h2 class="text-2xl font-extrabold text-white">Ready to Begin Your Investment?</h2>
-            <p class="text-slate-300 text-sm max-w-xl mx-auto">
-                Submit your sign-up information and transfer deposits through our verified payment links with full Silver Lining guarantee protection.
-            </p>
-            <div class="pt-2 flex flex-wrap justify-center gap-4">
-                <a href="https://paystack.shop/pay/nlcyo5cl-v" target="_blank" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all">
-                    Pay via Paystack
-                </a>
-                <a href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider rounded-xl border border-slate-700 transition-all">
-                    Contact on WhatsApp
-                </a>
-            </div>
-        </div>
-
-    </main>
+    </section>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 bg-slate-900/60 mt-16 py-6 text-center text-xs text-slate-500">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>&copy; 2026 Xióngmāo Investment Portfolio. All rights reserved. Silver Lining Guarantee Active.</p>
-            <div class="flex items-center space-x-4">
-                <span class="text-emerald-500 font-medium">Accra, Ghana</span>
-                <span>&bull;</span>
-                <span>Justice Barnor</span>
+    <footer class="bg-white dark:bg-[#0B132B] border-t border-slate-200 dark:border-slate-800 py-12 text-center text-sm text-slate-500 dark:text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <div class="flex items-center justify-center space-x-2 font-black text-slate-900 dark:text-white text-lg">
+                <span>🐼</span>
+                <span>XIÓNGMÃO INVESTMENT PORTFOLIO</span>
             </div>
+            <p>&copy; 2026 Xióngmāo Investment Portfolio. All rights reserved. Silver Lining Guarantee Active. Accra, Ghana.</p>
         </div>
     </footer>
 
-    <!-- Calculator Logic -->
+    <!-- JavaScript & Calculator Logic -->
     <script>
-        let currentYieldMode = 'standard'; // 'standard' or 'highyield'
-
-        function setYieldMode(mode) {
-            currentYieldMode = mode;
-            const btnStd = document.getElementById('btn-mode-standard');
-            const btnHy = document.getElementById('btn-mode-highyield');
-            const iconStd = document.getElementById('icon-mode-standard');
-            const iconHy = document.getElementById('icon-mode-highyield');
-            const badge = document.getElementById('badge-mode');
-            const lbl1 = document.getElementById('label-cycle-1');
-            const lbl2 = document.getElementById('label-cycle-2');
-            const lbl3 = document.getElementById('label-cycle-3');
-
-            if (mode === 'standard') {
-                btnStd.className = "p-4 rounded-xl border border-emerald-500 bg-emerald-950/30 text-left transition-all space-y-1 group";
-                iconStd.className = "fa-solid fa-circle-check text-emerald-400";
-                btnStd.querySelector('span.text-xs').className = "text-xs font-bold text-emerald-400 uppercase tracking-wider";
-
-                btnHy.className = "p-4 rounded-xl border border-slate-800 bg-slate-950/60 text-left transition-all space-y-1 group hover:border-slate-700";
-                iconHy.className = "fa-regular fa-circle text-slate-500";
-                btnHy.querySelector('span.text-xs').className = "text-xs font-bold text-slate-400 uppercase tracking-wider group-hover:text-amber-400";
-
-                badge.className = "text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20 font-bold";
-                badge.innerText = "Standard (20–25d/cycle)";
-
-                lbl1.innerText = "Cycle 1 (20–25d)";
-                lbl2.innerText = "Cycle 2 (20–25d)";
-                lbl3.innerText = "Cycle 3 (20–25d)";
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.className = "fa-solid fa-moon text-sm";
             } else {
-                btnHy.className = "p-4 rounded-xl border border-amber-500 bg-amber-950/30 text-left transition-all space-y-1 group";
-                iconHy.className = "fa-solid fa-circle-check text-amber-400";
-                btnHy.querySelector('span.text-xs').className = "text-xs font-bold text-amber-400 uppercase tracking-wider";
+                html.classList.add('dark');
+                icon.className = "fa-solid fa-sun text-sm";
+            }
+        }
 
-                btnStd.className = "p-4 rounded-xl border border-slate-800 bg-slate-950/60 text-left transition-all space-y-1 group hover:border-slate-700";
-                iconStd.className = "fa-regular fa-circle text-slate-500";
-                btnStd.querySelector('span.text-xs').className = "text-xs font-bold text-slate-400 uppercase tracking-wider group-hover:text-emerald-400";
+        let currentSchedule = 'standard'; // 'standard' or 'double'
 
-                badge.className = "text-[10px] bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded border border-amber-500/20 font-bold";
-                badge.innerText = "2x High Yield (40–50d/cycle)";
+        function setSchedule(sch) {
+            currentSchedule = sch;
+            const btnStd = document.getElementById('btn-sch-standard');
+            const btnDbl = document.getElementById('btn-sch-double');
 
-                lbl1.innerText = "Cycle 1 (40–50d)";
-                lbl2.innerText = "Cycle 2 (40–50d)";
-                lbl3.innerText = "Cycle 3 (40–50d)";
+            if (sch === 'standard') {
+                btnStd.className = "sch-btn px-4 py-4 rounded-2xl border border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 font-bold text-center text-slate-900 dark:text-white leading-snug transition";
+                btnDbl.className = "sch-btn px-4 py-4 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#0B132B] font-bold text-center text-slate-700 dark:text-white leading-snug transition";
+            } else {
+                btnDbl.className = "sch-btn px-4 py-4 rounded-2xl border border-amber-500 bg-amber-50 dark:bg-amber-950/40 font-bold text-center text-slate-900 dark:text-white leading-snug transition";
+                btnStd.className = "sch-btn px-4 py-4 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#0B132B] font-bold text-center text-slate-700 dark:text-white leading-snug transition";
             }
 
-            updateCalculator();
+            handleSliderInput(document.getElementById('investment-slider').value);
         }
 
-        function updateCalculator() {
-            let capital = parseFloat(document.getElementById('input-capital').value) || 2000;
-            document.getElementById('display-capital').innerText = 'GH₵ ' + capital.toLocaleString();
+        function handleSliderInput(val) {
+            const capital = parseFloat(val);
+            document.getElementById('slider-val-label').innerText = 'GH¢ ' + capital.toLocaleString();
 
-            let ratio = capital / 2000;
-            let baseCyclePayout = 3000 * ratio;
-            let cyclePayout = (currentYieldMode === 'standard') ? baseCyclePayout : (baseCyclePayout * 2);
+            const ratio = capital / 2000;
+            const baseCycle = 3000 * ratio;
+            const multiplier = (currentSchedule === 'standard') ? 1 : 2;
+            const cyclePayout = baseCycle * multiplier;
 
-            let totalPayout = cyclePayout * 3;
-            let totalProfit = totalPayout - capital;
-            let totalRoi = (totalProfit / capital) * 100;
+            const totalPayout = cyclePayout * 3;
+            const netProfit = totalPayout - capital;
+            const roi = (netProfit / capital) * 100;
 
-            document.getElementById('cycle-1').innerText = 'GH₵ ' + cyclePayout.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
-            document.getElementById('cycle-2').innerText = 'GH₵ ' + cyclePayout.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
-            document.getElementById('cycle-3').innerText = 'GH₵ ' + cyclePayout.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            // Determine Tier Label
+            let tierName = "Custom Allocation";
+            if (capital === 2000) tierName = "Tier A (GH¢2,000 Investment)";
+            else if (capital === 3000) tierName = "Tier B (GH¢3,000 Investment)";
+            else if (capital === 4000) tierName = "Tier C (GH¢4,000 Investment)";
+            else if (capital === 5000) tierName = "Tier D (GH¢5,000 Investment)";
+            else tierName = `Custom Allocation (GH¢${capital.toLocaleString()})`;
 
-            document.getElementById('res-payout').innerText = 'GH₵ ' + totalPayout.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
-            document.getElementById('res-profit').innerText = '+GH₵ ' + totalProfit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
-            document.getElementById('res-roi').innerText = totalRoi.toFixed(1) + '%';
+            document.getElementById('selected-tier-label').innerText = tierName;
+
+            // Update Breakdown Panels
+            document.getElementById('calc-c1').innerText = 'GH¢ ' + cyclePayout.toLocaleString();
+            document.getElementById('calc-c2').innerText = 'GH¢ ' + cyclePayout.toLocaleString();
+            document.getElementById('calc-c3').innerText = 'GH¢ ' + cyclePayout.toLocaleString();
+
+            // Update Totals & ROI
+            document.getElementById('res-total-payout').innerText = 'GH¢ ' + totalPayout.toLocaleString();
+            document.getElementById('res-net-profit').innerText = '+GH¢ ' + netProfit.toLocaleString();
+            document.getElementById('res-roi').innerText = roi.toFixed(1) + '%';
         }
 
-        // Initialize
-        updateCalculator();
+        // Initialize calculator on load
+        handleSliderInput(2000);
+    </script>
+
+    <!-- Firebase SDK Integration -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCOPb28blquduJAJFitS6C-IvkC6DTpiEB",
+            authDomain: "xiongmao-investment.firebaseapp.com",
+            projectId: "xiongmao-investment",
+            storageBucket: "xiongmao-investment.appspot.com",
+            messagingSenderId: "761194259557",
+            appId: "1:761194259557:web:bbf69ccbbd356340f0928c",
+            measurementId: "G-5K6D9T2CYM"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        console.log("Firebase connected successfully to Xióngmāo Investment!");
     </script>
 </body>
 </html>
