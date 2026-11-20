@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xióngmāo Investment Portfolio | Proposal &amp; Sign-Up Guide</title>
+    <title>Xióngmāo Investment Portfolio | Proposal & Sign-Up Guide</title>
     <meta name="description" content="Core stock-options trading program structured across 3-cycle payout frameworks with selectable Standard (20–25 days/cycle) or 2x High Yield (40–50 days/cycle) tier options, backed by our Silver Lining guarantee.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Xióngmāo Investment Portfolio | Proposal &amp; Sign-Up Guide">
+    <meta property="og:title" content="Xióngmāo Investment Portfolio | Proposal & Sign-Up Guide">
     <meta property="og:description" content="Explore 3-cycle Standard and 2x High Yield tiers, calculate projected payouts, review the Silver Lining guarantee, and sign up to start earning.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Configure Tailwind dark mode and custom palette tokens for the portfolio UI
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -27,13 +26,12 @@
                     }
                 }
             }
-        };
+        }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Hide navigation, toolbars, and sticky mobile controls when printing or saving PDF */
         @media print {
-            header, footer, #mobile-bottom-header, .no-print, #mobile-sticky-bar {
+            header, footer, .no-print, #mobile-sticky-bar, #mobile-bottom-header {
                 display: none !important;
             }
             body {
@@ -44,19 +42,21 @@
                 padding: 0 !important;
             }
         }
-
-        /* Light theme surface, typography, and high-contrast badge overrides */
         html[data-theme="light"] body {
             background-color: #f8fafc !important;
             color: #0f172a !important;
         }
         html[data-theme="light"] header,
         html[data-theme="light"] footer,
-        html[data-theme="light"] #mobile-bottom-header,
-        html[data-theme="light"] #mobile-sticky-bar {
+        html[data-theme="light"] #mobile-bottom-header {
             background-color: #ffffff !important;
             border-color: #e2e8f0 !important;
             color: #334155 !important;
+        }
+        html[data-theme="light"] #mobile-sticky-bar {
+            background-color: rgba(255, 255, 255, 0.96) !important;
+            border-color: #cbd5e1 !important;
+            color: #0f172a !important;
         }
         html[data-theme="light"] .bg-slate-900,
         html[data-theme="light"] .bg-slate-900\/90,
@@ -120,23 +120,6 @@
             background-color: #fffbeb !important;
             border-color: #fde68a !important;
         }
-        /* Keep secondary pill/badge buttons readable in Light Mode */
-        html[data-theme="light"] #whatsapp-signup-builder button:not(.bg-emerald-600),
-        html[data-theme="light"] .mw-btn {
-            background-color: #f8fafc !important;
-            color: #0f172a !important;
-            border-color: #cbd5e1 !important;
-        }
-        /* Highlight active selected row in Tier Breakdown Matrix */
-        .tier-matrix-row.tier-selected {
-            background-color: rgba(16, 185, 129, 0.12) !important;
-            box-shadow: inset 3px 0 0 #10b981;
-        }
-        html[data-theme="light"] .tier-matrix-row.tier-selected {
-            background-color: #ecfdf5 !important;
-            box-shadow: inset 3px 0 0 #059669;
-        }
-        /* Preserve high-contrast white labels on primary emerald CTA buttons in light mode */
         html[data-theme="light"] a.bg-emerald-600,
         html[data-theme="light"] button.bg-emerald-600 {
             background-color: #059669 !important;
@@ -145,15 +128,16 @@
         }
         html[data-theme="light"] a.bg-emerald-600 .text-white,
         html[data-theme="light"] button.bg-emerald-600 .text-white,
-        html[data-theme="light"] header .bg-gradient-to-br .text-white {
+        html[data-theme="light"] header .bg-gradient-to-br .text-white,
+        html[data-theme="light"] #mobile-bottom-header .bg-gradient-to-br .text-white {
             color: #ffffff !important;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between pb-24 md:pb-0 selection:bg-emerald-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
 
-    <!-- Top Navigation (Desktop Only) -->
-    <header class="hidden md:block md:sticky md:top-0 border-b border-slate-800 bg-slate-900/90 backdrop-blur-md z-50">
+    <!-- Desktop Top Navigation (Hidden on Mobile) -->
+    <header class="hidden md:block border-b border-slate-800 bg-slate-900/90 backdrop-blur-md md:sticky md:top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shadow-lg shadow-emerald-900/20 text-white font-black text-lg">
@@ -164,11 +148,11 @@
                     <span class="block text-xs text-slate-400 uppercase tracking-wider">Core Stock-Options Trading Program</span>
                 </div>
             </div>
-
+            
             <div class="flex items-center space-x-3">
-                <button type="button" onclick="toggleTheme()" id="btn-theme-toggle" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all flex items-center space-x-1.5">
-                    <i class="fa-solid fa-sun text-amber-400" id="icon-theme-toggle"></i>
-                    <span id="label-theme-toggle">Light Mode</span>
+                <button type="button" onclick="toggleTheme()" class="btn-theme-toggle px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all flex items-center space-x-1.5">
+                    <i class="fa-solid fa-sun text-amber-400 icon-theme-toggle"></i>
+                    <span class="label-theme-toggle">Light Mode</span>
                 </button>
                 <div class="hidden sm:flex items-center space-x-2 text-xs text-emerald-400 bg-emerald-950/50 border border-emerald-800/50 px-3 py-1.5 rounded-full">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -179,15 +163,15 @@
     </header>
 
     <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full space-y-10 flex-grow">
-
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 w-full space-y-10 flex-grow">
+        
         <!-- Hero Cover Section -->
         <div class="bg-gradient-to-r from-slate-900 via-slate-900 to-emerald-950/40 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8">
             <div class="absolute -right-10 -bottom-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="space-y-4 max-w-2xl">
                 <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">
                     <i class="fa-solid fa-file-shield"></i>
-                    <span>INVESTMENT PROPOSAL &amp; SIGN-UP GUIDE</span>
+                    <span>INVESTMENT PROPOSAL & SIGN-UP GUIDE</span>
                 </div>
                 <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
                     XIÓNGMĀO INVESTMENT PORTFOLIO
@@ -210,19 +194,17 @@
                     </a>
                 </div>
             </div>
-
-            <!-- Options Engine Preview Card -->
             <div class="w-full lg:w-96 bg-slate-950/80 border border-slate-800 rounded-xl p-4 shadow-xl">
                 <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider mb-3 flex items-center justify-between">
                     <span>Trading Engine Preview</span>
-                    <span class="text-emerald-400 font-mono">OPTIONS ENGINE • 3-CYCLE SIM</span>
+                    <span class="text-emerald-400 font-mono">OPTIONS • 3-CYCLE</span>
                 </div>
                 <div class="bg-slate-900 rounded-lg p-3 border border-slate-800/80 space-y-2 font-mono text-xs">
                     <div class="flex justify-between text-slate-400">
-                        <span>COVERED CALL &amp; SPREAD</span>
-                        <span class="text-emerald-400">+150.0% / CYCLE</span>
+                        <span>SPX / EQUITY OPTIONS</span>
+                        <span class="text-emerald-400">ACTIVE MODEL</span>
                     </div>
-                    <div class="text-[10px] text-slate-500">3-Cycle Execution • Standard (20–25d) / 2x High Yield (40–50d)</div>
+                    <div class="text-[10px] text-slate-500">Structured multi-cycle options yield execution</div>
                     <div class="h-16 bg-slate-950 rounded flex items-end px-2 pb-1 space-x-1">
                         <div class="w-1/6 bg-rose-500 h-8"></div>
                         <div class="w-1/6 bg-emerald-500 h-12"></div>
@@ -243,7 +225,7 @@
                 </div>
                 <h3 class="text-lg font-bold text-white">Core Trading Mechanism</h3>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Systematic stock-options strategies built to generate steady returns across 3 consecutive payout cycles.
+                    Systematic stock-options trading structured to target consistent performance across 3 payout cycles.
                 </p>
             </div>
 
@@ -253,7 +235,7 @@
                 </div>
                 <h3 class="text-lg font-bold text-white">Selectable Cycle Horizons</h3>
                 <p class="text-sm text-slate-400 leading-relaxed">
-                    Pick Standard (20–25 days/cycle) or 2x High Yield (40–50 days/cycle, 2x duration &amp; 2x cycle payout).
+                    Choose Standard 3-Cycle (20–25 days/cycle) or 2x High Yield 3-Cycle (40–50 days/cycle, 2x duration &amp; 2x cycle yield).
                 </p>
             </div>
 
@@ -280,7 +262,7 @@
                 </div>
             </div>
             <p class="text-slate-300 text-sm leading-relaxed">
-                We maintain full transparency and accountability. In the rare event that a scheduled payout window is delayed or missed past its scheduled cycle threshold (20–25 days for Standard or 40–50 days for 2x High Yield), our <strong class="text-amber-400">Silver Lining Policy</strong> ensures that you are automatically eligible for an enhanced <strong class="text-amber-400">2x payout</strong> for each missed window, safeguarding your capital and compounding your trust.
+                If a scheduled payout window passes its cycle threshold (20–25 days Standard or 40–50 days 2x High Yield), our <strong class="text-amber-400">Silver Lining Policy</strong> makes you eligible for an enhanced <strong class="text-amber-400">2x payout</strong> for each missed window, subject to verification and program terms.
             </p>
         </div>
 
@@ -325,7 +307,7 @@
                     <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Interactive Tool</span>
                     <h2 class="text-xl font-bold text-white flex items-center space-x-2 mt-1">
                         <i class="fa-solid fa-calculator text-emerald-400"></i>
-                        <span>Custom Tier &amp; 3-Cycle Yield Calculator</span>
+                        <span>Custom Tier & 3-Cycle Yield Calculator</span>
                     </h2>
                 </div>
                 <div class="flex items-center gap-2 flex-wrap">
@@ -395,20 +377,11 @@
                             </div>
                         </div>
 
-                        <!-- Visual 3-Step Cycle Progress Indicator (Cycle 1 -> Cycle 2 -> Cycle 3) -->
-                        <div class="grid grid-cols-3 gap-2 items-center pt-1" aria-label="3-Cycle Progression">
-                            <div class="flex items-center gap-1.5">
-                                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono font-bold flex items-center justify-center shrink-0">1</span>
-                                <div class="h-1 flex-1 rounded-full bg-emerald-500/60"></div>
-                            </div>
-                            <div class="flex items-center gap-1.5">
-                                <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-[10px] font-mono font-bold flex items-center justify-center shrink-0">2</span>
-                                <div class="h-1 flex-1 rounded-full bg-emerald-500/40"></div>
-                            </div>
-                            <div class="flex items-center gap-1.5">
-                                <span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-mono font-bold flex items-center justify-center shrink-0">3</span>
-                                <div class="h-1 flex-1 rounded-full bg-amber-500/40"></div>
-                            </div>
+                        <!-- Visual 3-Cycle Progress Bar -->
+                        <div class="grid grid-cols-3 gap-2 pt-0.5" aria-hidden="true">
+                            <div class="h-1.5 rounded-full bg-emerald-500"></div>
+                            <div class="h-1.5 rounded-full bg-emerald-500/70"></div>
+                            <div class="h-1.5 rounded-full bg-amber-400/80"></div>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px] font-mono">
@@ -427,7 +400,7 @@
                         </div>
                     </div>
 
-                    <!-- Interactive Capital Range Slider & Quick Presets -->
+                    <!-- Capital Slider -->
                     <div class="space-y-3 bg-slate-950/60 p-5 rounded-xl border border-slate-800/80">
                         <div class="flex justify-between items-center">
                             <label for="input-capital" class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Initial Investment Capital</label>
@@ -448,7 +421,7 @@
                         </div>
                     </div>
 
-                    <!-- Dynamic 3-Cycle Payout Breakdown Cards -->
+                    <!-- Dynamic 3-Cycle Breakdown View -->
                     <div id="breakdown-container" class="grid grid-cols-3 gap-3">
                         <div class="bg-slate-950/60 border border-slate-800 rounded-xl p-3.5 text-center space-y-1">
                             <span id="label-cycle-1" class="text-[10px] uppercase font-bold text-slate-400 block">Cycle 1 (20–25d)</span>
@@ -464,14 +437,14 @@
                         </div>
                     </div>
 
-                    <!-- Selected Plan Summary Strip right above CTA -->
-                    <div id="selected-plan-summary" class="bg-slate-900/90 border border-emerald-500/25 rounded-xl px-3.5 py-2.5 text-[11px] text-slate-300 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                        <span class="uppercase tracking-wider text-[10px] font-bold text-emerald-400">Selected Plan Summary</span>
-                        <span id="selected-plan-summary-text" class="font-mono font-semibold text-white">GH₵ 2,000 • Standard • Scheduled Payouts • Est. GH₵ 9,000</span>
+                    <!-- Risk & Tier Scaling Note -->
+                    <div class="bg-slate-950/70 border border-slate-800/90 rounded-xl p-3.5 text-[11px] text-slate-400 leading-relaxed flex items-start space-x-2.5">
+                        <i class="fa-solid fa-circle-info text-emerald-400 mt-0.5 shrink-0"></i>
+                        <span><strong class="text-slate-200">Risk &amp; Scaling Note:</strong> Market trading carries inherent financial risk, and projected figures reflect illustrative tier benchmarks (Tiers A–D scale proportionally across higher amounts). Review full terms and Silver Lining eligibility before committing capital.</span>
                     </div>
                 </div>
 
-                <!-- Right Column: 3-Cycle Summary & Silver Lining Protection Card -->
+                <!-- Result Box (1 Column) -->
                 <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-5 shadow-inner">
                     <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider border-b border-slate-800 pb-3 flex justify-between items-center gap-2">
                         <span>3-Cycle Summary</span>
@@ -517,6 +490,11 @@
                         </div>
                     </div>
 
+                    <div class="bg-slate-900/80 border border-slate-800 rounded-lg px-3 py-2 text-[11px] text-slate-300 flex items-center justify-between gap-2">
+                        <span class="text-slate-400">Selected Plan:</span>
+                        <span id="selected-plan-summary" class="font-mono font-bold text-emerald-300 text-right">GH₵ 2,000 • Standard</span>
+                    </div>
+
                     <a href="#channels" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all text-center block">
                         Lock In This Tier
                     </a>
@@ -534,7 +512,7 @@
                         <span>Tier Breakdown Matrix (Standard vs. 2x High Yield)</span>
                     </h2>
                 </div>
-                <span class="text-xs text-slate-400 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800">Values in Ghana Cedis (GH₵)</span>
+                <span class="text-xs text-slate-400 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800">Tap a tier row to sync slider &bull; GH₵</span>
             </div>
 
             <div class="overflow-x-auto">
@@ -552,8 +530,8 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-800/60 text-xs sm:text-sm font-medium">
-                        <tr data-tier-capital="2000" role="button" tabindex="0" aria-label="Select Tier A with GH₵ 2,000 initial investment" onclick="selectMatrixTier(2000)" onkeydown="handleMatrixTierKeydown(event, 2000)" class="tier-matrix-row tier-selected cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/70 hover:bg-slate-950/40 transition-colors">
-                            <td class="py-3.5 px-4 font-bold text-white">Tier A <span class="ml-1.5 text-[10px] font-mono text-emerald-400 align-middle">Select</span></td>
+                        <tr data-tier-cap="2000" tabindex="0" onclick="selectTierFromMatrix(2000)" onkeydown="handleTierRowKeydown(event, 2000)" class="tier-matrix-row cursor-pointer transition-colors bg-emerald-950/30 hover:bg-emerald-950/40">
+                            <td class="py-3.5 px-4 font-bold text-white">Tier A</td>
                             <td class="py-3.5 px-4">GH₵ 2,000</td>
                             <td class="py-3.5 px-4">GH₵ 9,000 (3 &times; 3k)</td>
                             <td class="py-3.5 px-4 text-emerald-400">GH₵ 7,000</td>
@@ -562,8 +540,8 @@
                             <td class="py-3.5 px-4 text-amber-400">GH₵ 16,000</td>
                             <td class="py-3.5 px-4 text-right text-amber-400 font-bold">800.0%</td>
                         </tr>
-                        <tr data-tier-capital="3000" role="button" tabindex="0" aria-label="Select Tier B with GH₵ 3,000 initial investment" onclick="selectMatrixTier(3000)" onkeydown="handleMatrixTierKeydown(event, 3000)" class="tier-matrix-row bg-slate-950/30 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/70 hover:bg-slate-950/40 transition-colors">
-                            <td class="py-3.5 px-4 font-bold text-white">Tier B <span class="ml-1.5 text-[10px] font-mono text-emerald-400 align-middle">Select</span></td>
+                        <tr data-tier-cap="3000" tabindex="0" onclick="selectTierFromMatrix(3000)" onkeydown="handleTierRowKeydown(event, 3000)" class="tier-matrix-row cursor-pointer transition-colors bg-slate-950/30 hover:bg-slate-950/40">
+                            <td class="py-3.5 px-4 font-bold text-white">Tier B</td>
                             <td class="py-3.5 px-4">GH₵ 3,000</td>
                             <td class="py-3.5 px-4">GH₵ 12,000 (3 &times; 4k)</td>
                             <td class="py-3.5 px-4 text-emerald-400">GH₵ 9,000</td>
@@ -572,8 +550,8 @@
                             <td class="py-3.5 px-4 text-amber-400">GH₵ 21,000</td>
                             <td class="py-3.5 px-4 text-right text-amber-400 font-bold">700.0%</td>
                         </tr>
-                        <tr data-tier-capital="4000" role="button" tabindex="0" aria-label="Select Tier C with GH₵ 4,000 initial investment" onclick="selectMatrixTier(4000)" onkeydown="handleMatrixTierKeydown(event, 4000)" class="tier-matrix-row cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/70 hover:bg-slate-950/40 transition-colors">
-                            <td class="py-3.5 px-4 font-bold text-white">Tier C <span class="ml-1.5 text-[10px] font-mono text-emerald-400 align-middle">Select</span></td>
+                        <tr data-tier-cap="4000" tabindex="0" onclick="selectTierFromMatrix(4000)" onkeydown="handleTierRowKeydown(event, 4000)" class="tier-matrix-row cursor-pointer transition-colors hover:bg-slate-950/40">
+                            <td class="py-3.5 px-4 font-bold text-white">Tier C</td>
                             <td class="py-3.5 px-4">GH₵ 4,000</td>
                             <td class="py-3.5 px-4">GH₵ 15,000 (3 &times; 5k)</td>
                             <td class="py-3.5 px-4 text-emerald-400">GH₵ 11,000</td>
@@ -582,8 +560,8 @@
                             <td class="py-3.5 px-4 text-amber-400">GH₵ 26,000</td>
                             <td class="py-3.5 px-4 text-right text-amber-400 font-bold">650.0%</td>
                         </tr>
-                        <tr data-tier-capital="5000" role="button" tabindex="0" aria-label="Select Tier D with GH₵ 5,000 initial investment" onclick="selectMatrixTier(5000)" onkeydown="handleMatrixTierKeydown(event, 5000)" class="tier-matrix-row bg-slate-950/30 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500/70 hover:bg-slate-950/40 transition-colors">
-                            <td class="py-3.5 px-4 font-bold text-white">Tier D <span class="ml-1.5 text-[10px] font-mono text-emerald-400 align-middle">Select</span></td>
+                        <tr data-tier-cap="5000" tabindex="0" onclick="selectTierFromMatrix(5000)" onkeydown="handleTierRowKeydown(event, 5000)" class="tier-matrix-row cursor-pointer transition-colors bg-slate-950/30 hover:bg-slate-950/40">
+                            <td class="py-3.5 px-4 font-bold text-white">Tier D</td>
                             <td class="py-3.5 px-4">GH₵ 5,000</td>
                             <td class="py-3.5 px-4">GH₵ 18,000 (3 &times; 6k)</td>
                             <td class="py-3.5 px-4 text-emerald-400">GH₵ 13,000</td>
@@ -607,16 +585,16 @@
                 </div>
                 <div>
                     <h3 class="text-xl font-extrabold text-white">Strategy Comparison</h3>
-                    <p class="text-xs text-slate-400 mt-1">Choose between Standard or 2x High Yield cycle durations</p>
+                    <p class="text-xs text-slate-400 mt-1">Standard vs. 2x High Yield cycle durations</p>
                 </div>
                 <ul class="space-y-3 text-sm text-slate-300">
                     <li class="flex items-start space-x-3">
                         <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
-                        <span><strong>Standard 3-Cycle:</strong> 20–25 days per cycle across 3 consecutive payouts (e.g., GH₵ 3,000 &times; 3)</span>
+                        <span><strong>Standard 3-Cycle:</strong> 20–25 days/cycle across 3 payouts (e.g., GH₵ 3,000 &times; 3)</span>
                     </li>
                     <li class="flex items-start space-x-3">
                         <i class="fa-solid fa-check text-amber-400 mt-1"></i>
-                        <span><strong>2x High Yield 3-Cycle:</strong> 2x the days per cycle (40–50 days per cycle) for 2x cycle payouts (e.g., GH₵ 6,000 &times; 3)</span>
+                        <span><strong>2x High Yield 3-Cycle:</strong> 40–50 days/cycle (2x days) for 2x payouts (e.g., GH₵ 6,000 &times; 3)</span>
                     </li>
                 </ul>
             </div>
@@ -629,20 +607,20 @@
                 </div>
                 <div>
                     <h3 class="text-xl font-extrabold text-white">Silver Lining Guarantee</h3>
-                    <p class="text-xs text-slate-400 mt-1">Compensation for delayed or missed windows</p>
+                    <p class="text-xs text-slate-400 mt-1">Protection for delayed or missed windows</p>
                 </div>
                 <ul class="space-y-3 text-sm text-slate-300">
                     <li class="flex items-start space-x-3">
                         <i class="fa-solid fa-medal text-amber-400 mt-1"></i>
-                        <span><strong>Missed Window Benefit:</strong> For each payout window missed, you become eligible for a 2x payout</span>
+                        <span><strong>Missed Window Benefit:</strong> Eligible for a 2x payout per missed payout window</span>
                     </li>
                     <li class="flex items-start space-x-3">
                         <i class="fa-solid fa-shield-halved text-amber-400 mt-1"></i>
-                        <span><strong>Risk Mitigation:</strong> Automatic protection honoring your trust and capital commitment</span>
+                        <span><strong>Risk Mitigation:</strong> Structured protection honoring your capital commitment</span>
                     </li>
                     <li class="flex items-start space-x-3">
                         <i class="fa-solid fa-headset text-amber-400 mt-1"></i>
-                        <span><strong>Support:</strong> Claim or verify status instantly via WhatsApp assistance</span>
+                        <span><strong>Support:</strong> Verify cycle eligibility directly via WhatsApp</span>
                     </li>
                 </ul>
             </div>
@@ -681,7 +659,7 @@
                         <i class="fa-solid fa-mobile-screen-button"></i>
                     </div>
                     <h4 class="font-bold text-white">Remittance MoMo Details</h4>
-                    <p class="text-xs text-slate-400">MoMo Number &amp; Full MoMo Account Name.</p>
+                    <p class="text-xs text-slate-400">MoMo Number & Full MoMo Account Name.</p>
                 </div>
             </div>
 
@@ -698,29 +676,22 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <input type="text" id="signup-fullname" placeholder="Full Names" oninput="updateWhatsAppPreview()" class="bg-slate-900 border border-slate-800 focus:border-emerald-500 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 outline-none">
                     <input type="text" id="signup-whatsapp" placeholder="WhatsApp Number" oninput="updateWhatsAppPreview()" class="bg-slate-900 border border-slate-800 focus:border-emerald-500 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 outline-none">
-                    <input type="text" id="signup-momo" placeholder="MoMo Number &amp; Account Name" oninput="updateWhatsAppPreview()" class="bg-slate-900 border border-slate-800 focus:border-emerald-500 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 outline-none">
+                    <input type="text" id="signup-momo" placeholder="MoMo Number & Account Name" oninput="updateWhatsAppPreview()" class="bg-slate-900 border border-slate-800 focus:border-emerald-500 rounded-lg px-3 py-2 text-xs text-white placeholder-slate-500 outline-none">
                 </div>
 
                 <div class="bg-slate-900/90 border border-slate-800/90 rounded-lg p-3 text-xs font-mono text-slate-300 whitespace-pre-line" id="whatsapp-message-preview"></div>
 
-                <!-- Non-blocking friendly reminder note when required details are still blank -->
-                <div id="whatsapp-field-reminder" class="hidden bg-amber-950/30 border border-amber-500/30 rounded-lg px-3 py-2 text-[11px] text-amber-200 flex items-start space-x-2">
-                    <i class="fa-solid fa-circle-exclamation text-amber-400 mt-0.5 shrink-0"></i>
-                    <span id="whatsapp-field-reminder-text">Tip: Fill in any remaining bracketed fields (Full Names, WhatsApp Number, or MoMo Details) before sending so your onboarding can be matched quickly. You can still copy or send now.</span>
-                </div>
-
-                <!-- Non-blocking status confirmation when auto-copying on WhatsApp launch -->
-                <div id="whatsapp-send-status" class="hidden bg-emerald-950/30 border border-emerald-500/30 rounded-lg px-3 py-2 text-[11px] text-emerald-200 flex items-start space-x-2">
-                    <i class="fa-solid fa-circle-check text-emerald-400 mt-0.5 shrink-0"></i>
-                    <span id="whatsapp-send-status-text">Message copied to clipboard and WhatsApp is opening with your pre-filled sign-up message ready to paste or send.</span>
-                </div>
+                <p id="whatsapp-field-reminder" class="text-[11px] text-amber-300 hidden">
+                    Tip: Fill in your Full Names, WhatsApp Number, and MoMo details above before sending so onboarding can match your account smoothly.
+                </p>
+                <p id="whatsapp-action-status" class="text-[11px] text-emerald-400 hidden"></p>
 
                 <div class="flex flex-wrap items-center gap-3">
                     <button type="button" onclick="copyWhatsAppMessage()" id="btn-copy-wa" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs rounded-lg border border-slate-700 transition-all flex items-center space-x-2">
                         <i class="fa-regular fa-copy"></i>
                         <span id="label-copy-wa">Copy Message</span>
                     </button>
-                    <a id="btn-send-wa" href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs rounded-lg shadow transition-all flex items-center space-x-2">
+                    <a id="btn-send-wa" href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" onclick="handleSendViaWhatsApp(event)" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs rounded-lg shadow transition-all flex items-center space-x-2">
                         <i class="fa-brands fa-whatsapp"></i>
                         <span>Send via WhatsApp</span>
                     </a>
@@ -741,13 +712,13 @@
                 <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Secure Remittance</span>
                 <h2 class="text-xl font-bold text-white flex items-center space-x-2 mt-1">
                     <i class="fa-solid fa-wallet text-emerald-400"></i>
-                    <span>2. Sign Up &amp; Official Support</span>
+                    <span>2. Sign Up & Official Support</span>
                 </h2>
                 <p class="text-xs text-slate-400 mt-1">Complete your sign-up through our official checkout portal or reach out via WhatsApp for assistance:</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <a href="https://paystack.shop/pay/nlcyo5cl-v" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-br from-emerald-950/60 to-slate-950 border border-emerald-500/40 hover:border-emerald-400 rounded-xl p-6 transition-all flex flex-col justify-between space-y-4 group shadow-lg">
+                <a href="https://paystack.shop/pay/nlcyo5cl-v" target="_blank" class="bg-gradient-to-br from-emerald-950/60 to-slate-950 border border-emerald-500/40 hover:border-emerald-400 rounded-xl p-6 transition-all flex flex-col justify-between space-y-4 group shadow-lg">
                     <div class="flex items-center space-x-3">
                         <div class="w-11 h-11 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-lg border border-emerald-500/30">
                             <i class="fa-solid fa-rocket"></i>
@@ -764,7 +735,7 @@
                     </span>
                 </a>
 
-                <a href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" rel="noopener noreferrer" class="bg-slate-950 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-6 transition-all flex flex-col justify-between space-y-4 group">
+                <a href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" class="bg-slate-950 border border-slate-800 hover:border-emerald-500/50 rounded-xl p-6 transition-all flex flex-col justify-between space-y-4 group">
                     <div class="flex items-center space-x-3">
                         <div class="w-11 h-11 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold text-lg border border-emerald-500/20">
                             <i class="fa-brands fa-whatsapp"></i>
@@ -827,10 +798,10 @@
                 Sign up today through our verified checkout portal to activate your portfolio with full Silver Lining guarantee protection.
             </p>
             <div class="pt-2 flex flex-wrap justify-center gap-4">
-                <a href="https://paystack.shop/pay/nlcyo5cl-v" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all">
+                <a href="https://paystack.shop/pay/nlcyo5cl-v" target="_blank" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all">
                     Sign Up to Start Earning
                 </a>
-                <a href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider rounded-xl border border-slate-700 transition-all">
+                <a href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs uppercase tracking-wider rounded-xl border border-slate-700 transition-all">
                     Contact on WhatsApp
                 </a>
                 <button type="button" onclick="shareProposalLink()" class="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-emerald-400 font-bold text-xs uppercase tracking-wider rounded-xl border border-emerald-500/40 transition-all flex items-center space-x-2">
@@ -844,17 +815,17 @@
 
     <!-- Sticky Mobile Sign-Up Bar -->
     <div id="mobile-sticky-bar" class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-4 py-2.5 flex items-center justify-between gap-3 shadow-2xl">
-        <a href="https://paystack.shop/pay/nlcyo5cl-v" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] uppercase tracking-wider rounded-lg text-center shadow">
+        <a href="https://paystack.shop/pay/nlcyo5cl-v" target="_blank" class="flex-1 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] uppercase tracking-wider rounded-lg text-center shadow">
             Sign Up to Start Earning
         </a>
-        <a href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" rel="noopener noreferrer" class="py-2.5 px-3.5 bg-slate-800 hover:bg-slate-700 text-emerald-400 font-bold text-[11px] uppercase tracking-wider rounded-lg border border-slate-700 flex items-center space-x-1.5">
+        <a href="https://wa.me/message/D5B5Q7RX4DHDP1" target="_blank" class="py-2.5 px-3.5 bg-slate-800 hover:bg-slate-700 text-emerald-400 font-bold text-[11px] uppercase tracking-wider rounded-lg border border-slate-700 flex items-center space-x-1.5">
             <i class="fa-brands fa-whatsapp text-sm"></i>
             <span>Chat</span>
         </a>
     </div>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800 bg-slate-900/60 mt-16 py-6 text-center text-xs text-slate-500 space-y-3">
+    <footer class="border-t border-slate-800 bg-slate-900/60 mt-12 md:mt-16 py-6 text-center text-xs text-slate-500 space-y-3">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>&copy; 2026 Xióngmāo Investment Portfolio. All rights reserved. Silver Lining Guarantee Active.</p>
             <div class="flex items-center space-x-4">
@@ -868,134 +839,459 @@
         </div>
     </footer>
 
-    <!-- Mobile-Only Bottom Header Bar (Rendered as last item on mobile viewports) -->
-    <div id="mobile-bottom-header" class="md:hidden border-t border-slate-800 bg-slate-900/95 px-3.5 py-3 flex items-center justify-between gap-2.5">
-        <div class="flex items-center space-x-2.5 min-w-0">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shadow-lg shadow-emerald-900/20 text-white font-black text-sm shrink-0">
-                🐼
+    <!-- Mobile Bottom Header (Last Item on Mobile View, Above Sticky Bar) -->
+    <div id="mobile-bottom-header" class="md:hidden border-t border-slate-800 bg-slate-900/95 pb-24">
+        <div class="max-w-7xl mx-auto px-4 py-3.5 flex items-center justify-between gap-3">
+            <div class="flex items-center space-x-2.5 min-w-0">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center shadow-lg shadow-emerald-900/20 text-white font-black text-base shrink-0">
+                    🐼
+                </div>
+                <div class="min-w-0">
+                    <span class="font-bold text-sm tracking-wide text-white block truncate">XIÓNGMĀO <span class="text-emerald-400">PORTFOLIO</span></span>
+                    <span class="block text-[10px] text-slate-400 uppercase tracking-wider truncate">Stock-Options Program</span>
+                </div>
             </div>
-            <div class="min-w-0 leading-tight">
-                <span class="font-bold text-xs tracking-wide text-white block">XIÓNGMĀO</span>
-                <span class="font-semibold text-[11px] text-emerald-400 block truncate">INVESTMENT PORTFOLIO</span>
-            </div>
-        </div>
 
-        <button type="button" onclick="toggleTheme()" id="btn-theme-toggle-mobile" class="px-2.5 py-1.5 rounded-full text-[11px] font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all flex items-center space-x-1 shrink-0">
-            <i class="fa-solid fa-sun text-amber-400" id="icon-theme-toggle-mobile"></i>
-            <span id="label-theme-toggle-mobile">Light Mode</span>
-        </button>
+            <button type="button" onclick="toggleTheme()" class="btn-theme-toggle px-3 py-1.5 rounded-full text-[11px] font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition-all flex items-center space-x-1.5 shrink-0">
+                <i class="fa-solid fa-sun text-amber-400 icon-theme-toggle"></i>
+                <span class="label-theme-toggle">Light Mode</span>
+            </button>
+        </div>
     </div>
 
-    <!-- Calculator & Interactive State Logic -->
+    <!-- Calculator & Interactive Logic -->
     <script>
-        let currentYieldMode = 'standard';   // 'standard' or 'highyield'
-        let currentPayoutMode = 'payout';  // 'payout' or 'reinvest'
-        let missedWindowsCount = 1;        // 1, 2, or 3
+        let currentYieldMode = 'standard'; // 'standard' or 'highyield'
+        let currentPayoutMode = 'payout'; // 'payout' or 'reinvest'
+        let missedWindowsCount = 1; // 1, 2, or 3
 
-        /**
-         * Copies text to clipboard using modern Clipboard API with execCommand fallback.
-         */
-        function copyTextToClipboard(text) {
+        function computeCycleMetrics(capital) {
+            const safeCap = Math.max(2000, parseFloat(capital) || 2000);
+            const ratio = safeCap / 2000;
+            const baseCyclePayout = 3000 * ratio;
+            const cyclePayout = (currentYieldMode === 'standard') ? baseCyclePayout : (baseCyclePayout * 2);
+
+            let c1 = cyclePayout;
+            let c2 = cyclePayout;
+            let c3 = cyclePayout;
+
+            if (currentPayoutMode === 'reinvest') {
+                const rolled1 = c1 * 0.5;
+                c2 = cyclePayout * (1 + (rolled1 / safeCap) * 0.5);
+                const rolled2 = c2 * 0.5;
+                c3 = cyclePayout * (1 + (rolled2 / safeCap) * 0.5);
+            }
+
+            const totalPayout = c1 + c2 + c3;
+            const totalProfit = totalPayout - safeCap;
+            const totalRoi = (totalProfit / safeCap) * 100;
+            const silverLiningTotal = cyclePayout * 2 * missedWindowsCount;
+
+            return {
+                capital: safeCap,
+                cyclePayout,
+                c1,
+                c2,
+                c3,
+                totalPayout,
+                totalProfit,
+                totalRoi,
+                silverLiningTotal
+            };
+        }
+
+        function setPayoutMode(mode) {
+            currentPayoutMode = mode;
+            const btnP = document.getElementById('btn-pmode-payout');
+            const btnR = document.getElementById('btn-pmode-reinvest');
+            const iconP = document.getElementById('icon-pmode-payout');
+            const iconR = document.getElementById('icon-pmode-reinvest');
+            const lbl = document.getElementById('res-pmode-label');
+
+            if (mode === 'payout') {
+                if (btnP) btnP.className = "p-3 rounded-xl border border-emerald-500 bg-emerald-950/30 text-left transition-all flex items-center justify-between";
+                if (iconP) iconP.className = "fa-solid fa-circle-check text-emerald-400";
+                if (btnR) btnR.className = "p-3 rounded-xl border border-slate-800 bg-slate-950/60 text-left transition-all flex items-center justify-between hover:border-slate-700";
+                if (iconR) iconR.className = "fa-regular fa-circle text-slate-500";
+                if (lbl) lbl.innerText = "Scheduled Payouts";
+            } else {
+                if (btnR) btnR.className = "p-3 rounded-xl border border-amber-500 bg-amber-950/30 text-left transition-all flex items-center justify-between";
+                if (iconR) iconR.className = "fa-solid fa-circle-check text-amber-400";
+                if (btnP) btnP.className = "p-3 rounded-xl border border-slate-800 bg-slate-950/60 text-left transition-all flex items-center justify-between hover:border-slate-700";
+                if (iconP) iconP.className = "fa-regular fa-circle text-slate-500";
+                if (lbl) lbl.innerText = "Reinvest (50% Roll)";
+            }
+            updateCalculator();
+        }
+
+        function formatShortDate(d) {
+            return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+        }
+
+        function updateCycleTimeline(startStr, minDays, maxDays) {
+            const base = startStr ? new Date(startStr + 'T00:00:00') : new Date('2026-11-20T00:00:00');
+            if (isNaN(base.getTime())) return;
+
+            for (let c = 1; c <= 3; c++) {
+                const startOffset = (c - 1) * minDays;
+                const endMinOffset = c * minDays;
+                const endMaxOffset = c * maxDays;
+
+                const winStart = new Date(base.getTime());
+                winStart.setDate(winStart.getDate() + startOffset);
+
+                const winEndMin = new Date(base.getTime());
+                winEndMin.setDate(winEndMin.getDate() + endMinOffset);
+
+                const winEndMax = new Date(base.getTime());
+                winEndMax.setDate(winEndMax.getDate() + endMaxOffset);
+
+                const el = document.getElementById('est-date-' + c);
+                if (el) {
+                    el.innerText = formatShortDate(winEndMin) + ' – ' + formatShortDate(winEndMax);
+                }
+            }
+        }
+
+        function setYieldMode(mode) {
+            currentYieldMode = mode;
+            const btnStd = document.getElementById('btn-mode-standard');
+            const btnHy = document.getElementById('btn-mode-highyield');
+            const iconStd = document.getElementById('icon-mode-standard');
+            const iconHy = document.getElementById('icon-mode-highyield');
+            const badge = document.getElementById('badge-mode');
+            const lbl1 = document.getElementById('label-cycle-1');
+            const lbl2 = document.getElementById('label-cycle-2');
+            const lbl3 = document.getElementById('label-cycle-3');
+
+            if (mode === 'standard') {
+                btnStd.className = "p-4 rounded-xl border border-emerald-500 bg-emerald-950/30 text-left transition-all space-y-1 group";
+                iconStd.className = "fa-solid fa-circle-check text-emerald-400";
+                btnStd.querySelector('span.text-xs').className = "text-xs font-bold text-emerald-400 uppercase tracking-wider";
+
+                btnHy.className = "p-4 rounded-xl border border-slate-800 bg-slate-950/60 text-left transition-all space-y-1 group hover:border-slate-700";
+                iconHy.className = "fa-regular fa-circle text-slate-500";
+                btnHy.querySelector('span.text-xs').className = "text-xs font-bold text-slate-400 uppercase tracking-wider group-hover:text-amber-400";
+
+                badge.className = "text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20 font-bold";
+                badge.innerText = "Standard (20–25d/cycle)";
+
+                lbl1.innerText = "Cycle 1 (20–25d)";
+                lbl2.innerText = "Cycle 2 (20–25d)";
+                lbl3.innerText = "Cycle 3 (20–25d)";
+                const tlEl = document.getElementById('res-timeline');
+                if (tlEl) tlEl.innerText = "60–75 days total";
+            } else {
+                btnHy.className = "p-4 rounded-xl border border-amber-500 bg-amber-950/30 text-left transition-all space-y-1 group";
+                iconHy.className = "fa-solid fa-circle-check text-amber-400";
+                btnHy.querySelector('span.text-xs').className = "text-xs font-bold text-amber-400 uppercase tracking-wider";
+
+                btnStd.className = "p-4 rounded-xl border border-slate-800 bg-slate-950/60 text-left transition-all space-y-1 group hover:border-slate-700";
+                iconStd.className = "fa-regular fa-circle text-slate-500";
+                btnStd.querySelector('span.text-xs').className = "text-xs font-bold text-slate-400 uppercase tracking-wider group-hover:text-emerald-400";
+
+                badge.className = "text-[10px] bg-amber-500/10 text-amber-400 px-2 py-0.5 rounded border border-amber-500/20 font-bold";
+                badge.innerText = "2x High Yield (40–50d/cycle)";
+
+                lbl1.innerText = "Cycle 1 (40–50d)";
+                lbl2.innerText = "Cycle 2 (40–50d)";
+                lbl3.innerText = "Cycle 3 (40–50d)";
+                const tlEl = document.getElementById('res-timeline');
+                if (tlEl) tlEl.innerText = "120–150 days total";
+            }
+
+            updateCalculator();
+        }
+
+        function syncTierMatrixHighlight(capital) {
+            document.querySelectorAll('.tier-matrix-row').forEach(row => {
+                const rowCap = parseFloat(row.getAttribute('data-tier-cap'));
+                if (rowCap === capital) {
+                    row.className = "tier-matrix-row cursor-pointer transition-colors bg-emerald-950/40 ring-1 ring-inset ring-emerald-500/50";
+                } else {
+                    row.className = "tier-matrix-row cursor-pointer transition-colors bg-slate-950/30 hover:bg-slate-950/50";
+                }
+            });
+        }
+
+        function selectTierFromMatrix(amount) {
+            const slider = document.getElementById('input-capital');
+            if (slider) {
+                const min = parseFloat(slider.min) || 2000;
+                const max = parseFloat(slider.max) || 50000;
+                const clamped = Math.min(max, Math.max(min, amount));
+                slider.value = clamped;
+                updateCalculator();
+                const calcSection = document.getElementById('calculator');
+                if (calcSection) {
+                    calcSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        function handleTierRowKeydown(event, amount) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                selectTierFromMatrix(amount);
+            }
+        }
+
+        function updateCalculator() {
+            const rawCapital = parseFloat(document.getElementById('input-capital').value) || 2000;
+            const metrics = computeCycleMetrics(rawCapital);
+            const capital = metrics.capital;
+
+            document.getElementById('display-capital').innerText = 'GH₵ ' + capital.toLocaleString();
+
+            document.getElementById('cycle-1').innerText = 'GH₵ ' + metrics.c1.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('cycle-2').innerText = 'GH₵ ' + metrics.c2.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('cycle-3').innerText = 'GH₵ ' + metrics.c3.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+
+            const startDateVal = document.getElementById('input-start-date')?.value || '2026-11-20';
+            if (currentYieldMode === 'standard') {
+                updateCycleTimeline(startDateVal, 20, 25);
+            } else {
+                updateCycleTimeline(startDateVal, 40, 50);
+            }
+
+            document.getElementById('res-payout').innerText = 'GH₵ ' + metrics.totalPayout.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('res-profit').innerText = '+GH₵ ' + metrics.totalProfit.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            document.getElementById('res-roi').innerText = metrics.totalRoi.toFixed(1) + '%';
+
+            const slEl = document.getElementById('res-silver-lining');
+            const slLabelEl = document.getElementById('label-silver-lining');
+            if (slEl) {
+                slEl.innerText = 'GH₵ ' + metrics.silverLiningTotal.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+            }
+            if (slLabelEl) {
+                const winWord = missedWindowsCount === 1 ? 'window' : 'windows';
+                slLabelEl.innerText = 'Silver Lining (' + missedWindowsCount + ' missed ' + winWord + ' 2x):';
+            }
+
+            const tierBadgeEl = document.getElementById('tier-match-badge');
+            if (tierBadgeEl) {
+                const tierMap = { 2000: 'Matches Tier A', 3000: 'Matches Tier B', 4000: 'Matches Tier C', 5000: 'Matches Tier D' };
+                tierBadgeEl.innerText = tierMap[capital] || 'Custom Scaled Tier';
+            }
+
+            const planSummaryEl = document.getElementById('selected-plan-summary');
+            if (planSummaryEl) {
+                const modeShort = currentYieldMode === 'standard' ? 'Standard' : '2x High Yield';
+                const pShort = currentPayoutMode === 'reinvest' ? 'Reinvest' : 'Payout';
+                planSummaryEl.innerText = 'GH₵ ' + capital.toLocaleString() + ' • ' + modeShort + ' • ' + pShort;
+            }
+
+            document.querySelectorAll('.preset-cap-btn').forEach(btn => {
+                const capVal = parseFloat(btn.getAttribute('data-cap'));
+                if (capVal === capital) {
+                    btn.className = "preset-cap-btn px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 transition-all";
+                } else {
+                    btn.className = "preset-cap-btn px-2.5 py-1 rounded-lg text-[11px] font-mono font-bold bg-slate-900 text-slate-300 hover:border-slate-600 border border-slate-800 transition-all";
+                }
+            });
+
+            syncTierMatrixHighlight(capital);
+            updateWhatsAppPreview(capital, metrics.totalPayout);
+        }
+
+        function setPresetCapital(amount) {
+            const slider = document.getElementById('input-capital');
+            if (slider) {
+                slider.value = amount;
+                updateCalculator();
+            }
+        }
+
+        function shareProposalLink() {
+            const url = window.location.href;
+            const label = document.getElementById('label-share-link');
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Xióngmāo Investment Portfolio | Proposal & Sign-Up Guide',
+                    url: url
+                }).catch(() => {});
+            }
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                return navigator.clipboard.writeText(text).then(() => true).catch(() => copyTextFallback(text));
+                navigator.clipboard.writeText(url).then(() => {
+                    if (label) {
+                        label.innerText = 'Link Copied!';
+                        setTimeout(() => { label.innerText = 'Share Proposal Link'; }, 2000);
+                    }
+                });
             }
-            return Promise.resolve(copyTextFallback(text));
         }
 
-        /**
-         * Fallback clipboard helper using a temporary textarea for restricted/iframe contexts.
-         */
-        function copyTextFallback(text) {
-            let copied = false;
-            const ta = document.createElement('textarea');
-            ta.value = text;
-            ta.setAttribute('readonly', '');
-            ta.style.position = 'fixed';
-            ta.style.opacity = '0';
-            document.body.appendChild(ta);
-            ta.select();
-            try {
-                copied = !!document.execCommand('copy');
-            } catch (e) {
-                copied = false;
+        function buildWhatsAppMessage(capitalOverride, totalPayoutOverride) {
+            const baseCap = capitalOverride || (parseFloat(document.getElementById('input-capital').value) || 2000);
+            const metrics = computeCycleMetrics(baseCap);
+            const totalPayout = (typeof totalPayoutOverride === 'number') ? totalPayoutOverride : metrics.totalPayout;
+
+            const modeLabel = (currentYieldMode === 'standard'
+                ? 'Standard 3-Cycle (20–25d/cycle)'
+                : '2x High Yield 3-Cycle (40–50d/cycle)') +
+                (currentPayoutMode === 'reinvest' ? ' • Reinvest Preview' : ' • Scheduled Payouts');
+
+            const fullName = (document.getElementById('signup-fullname')?.value || '').trim() || '[Full Names]';
+            const whatsapp = (document.getElementById('signup-whatsapp')?.value || '').trim() || '[WhatsApp Number]';
+            const momo = (document.getElementById('signup-momo')?.value || '').trim() || '[MoMo Number & Full MoMo Account Name]';
+
+            return [
+                'Hello Xióngmāo Investment Portfolio, I would like to sign up:',
+                '• Full Names: ' + fullName,
+                '• WhatsApp Number: ' + whatsapp,
+                '• Remittance MoMo: ' + momo,
+                '• Selected Capital: GH₵ ' + metrics.capital.toLocaleString(),
+                '• Strategy: ' + modeLabel,
+                '• Projected 3-Cycle Payout: GH₵ ' + totalPayout.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0})
+            ].join('
+');
+        }
+
+        function refreshSignUpReminders() {
+            const fullName = (document.getElementById('signup-fullname')?.value || '').trim();
+            const whatsapp = (document.getElementById('signup-whatsapp')?.value || '').trim();
+            const momo = (document.getElementById('signup-momo')?.value || '').trim();
+            const reminderEl = document.getElementById('whatsapp-field-reminder');
+            if (reminderEl) {
+                const anyFilled = Boolean(fullName || whatsapp || momo);
+                const allFilled = Boolean(fullName && whatsapp && momo);
+                if (anyFilled && !allFilled) {
+                    reminderEl.classList.remove('hidden');
+                } else {
+                    reminderEl.classList.add('hidden');
+                }
             }
-            document.body.removeChild(ta);
-            return copied;
         }
 
-        /**
-         * Updates the visible status banner when "Send via WhatsApp" is tapped/clicked.
-         */
-        function showWhatsAppSendStatus(copiedOk) {
-            const statusBox = document.getElementById('whatsapp-send-status');
-            const statusText = document.getElementById('whatsapp-send-status-text');
-            if (!statusBox || !statusText) return;
-
-            statusText.innerText = copiedOk
-                ? 'Message copied to clipboard and WhatsApp is opening with your sign-up message pre-filled (ready to paste if needed).'
-                : 'Opening WhatsApp with your pre-filled sign-up message. If auto-copy was blocked by your browser, tap "Copy Message" to copy it manually.';
-            statusBox.classList.remove('hidden');
-        }
-
-        /**
-         * Handles tapping/clicking "Send via WhatsApp": refreshes field reminder,
-         * auto-copies the latest sign-up message, updates href with encoded text,
-         * and opens WhatsApp cleanly across mobile and desktop browsers.
-         */
-        function handleSendViaWhatsApp(event) {
-            refreshSignUpReminder();
-            const msg = buildWhatsAppMessage();
-            const waUrl = 'https://wa.me/message/D5B5Q7RX4DHDP1?text=' + encodeURIComponent(msg);
-
+        function updateWhatsAppPreview(capitalOverride, totalPayoutOverride) {
+            const capital = capitalOverride || (parseFloat(document.getElementById('input-capital').value) || 2000);
+            const pill = document.getElementById('whatsapp-tier-pill');
+            if (pill) {
+                pill.innerText = 'GH₵ ' + capital.toLocaleString() + ' • ' + (currentYieldMode === 'standard' ? 'Standard 3-Cycle' : '2x High Yield');
+            }
+            const msg = buildWhatsAppMessage(capitalOverride, totalPayoutOverride);
+            const previewEl = document.getElementById('whatsapp-message-preview');
+            if (previewEl) {
+                previewEl.innerText = msg;
+            }
             const sendBtn = document.getElementById('btn-send-wa');
             if (sendBtn) {
-                sendBtn.href = waUrl;
+                sendBtn.href = 'https://wa.me/message/D5B5Q7RX4DHDP1?text=' + encodeURIComponent(msg);
             }
+            refreshSignUpReminders();
+        }
 
-            const labelEl = document.getElementById('label-copy-wa');
-            copyTextToClipboard(msg).then((copiedOk) => {
-                showWhatsAppSendStatus(copiedOk);
-                if (copiedOk && labelEl) {
-                    labelEl.innerText = 'Copied!';
-                    setTimeout(() => { labelEl.innerText = 'Copy Message'; }, 2000);
-                }
-            });
+        function copyTextToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                return navigator.clipboard.writeText(text).then(() => true).catch(() => fallbackCopyText(text));
+            }
+            return Promise.resolve(fallbackCopyText(text));
+        }
 
-            // Allow default target="_blank" navigation when unblocked, with window.open fallback
-            if (event && !event.defaultPrevented) {
-                try {
-                    const popup = window.open(waUrl, '_blank', 'noopener,noreferrer');
-                    if (popup) {
-                        event.preventDefault();
-                    }
-                } catch (e) {
-                    // Fall back to standard anchor navigation
-                }
+        function fallbackCopyText(text) {
+            try {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.setAttribute('readonly', '');
+                ta.style.position = 'fixed';
+                ta.style.opacity = '0';
+                document.body.appendChild(ta);
+                ta.select();
+                const ok = document.execCommand('copy');
+                document.body.removeChild(ta);
+                return ok;
+            } catch (_) {
+                return false;
             }
         }
 
-        /**
-         * Copies the generated WhatsApp message to the clipboard with feedback label state.
-         */
         function copyWhatsAppMessage() {
-            refreshSignUpReminder();
             const msg = buildWhatsAppMessage();
             const labelEl = document.getElementById('label-copy-wa');
-            copyTextToClipboard(msg).then((copiedOk) => {
-                if (copiedOk && labelEl) {
+            const statusEl = document.getElementById('whatsapp-action-status');
+            copyTextToClipboard(msg).then((copied) => {
+                if (labelEl && copied) {
                     labelEl.innerText = 'Copied!';
                     setTimeout(() => { labelEl.innerText = 'Copy Message'; }, 2000);
+                }
+                if (statusEl) {
+                    statusEl.textContent = copied
+                        ? 'Message copied to clipboard. Ready to paste or send on WhatsApp.'
+                        : 'Unable to auto-copy on this device; please copy from the preview box above.';
+                    statusEl.classList.remove('hidden');
                 }
             });
         }
 
-        // Initialize calculator and WhatsApp message preview on load
-        syncThemeButtons(document.documentElement.getAttribute('data-theme') || 'dark');
-        updateCalculator();
-        const sendWaLink = document.getElementById('btn-send-wa');
-        if (sendWaLink) {
-            sendWaLink.addEventListener('click', handleSendViaWhatsApp);
+        function handleSendViaWhatsApp(event) {
+            const msg = buildWhatsAppMessage();
+            const waUrl = 'https://wa.me/message/D5B5Q7RX4DHDP1?text=' + encodeURIComponent(msg);
+            const statusEl = document.getElementById('whatsapp-action-status');
+            const labelEl = document.getElementById('label-copy-wa');
+
+            if (event) {
+                event.preventDefault();
+            }
+
+            copyTextToClipboard(msg).then((copied) => {
+                if (labelEl && copied) {
+                    labelEl.innerText = 'Copied!';
+                    setTimeout(() => { labelEl.innerText = 'Copy Message'; }, 2000);
+                }
+                if (statusEl) {
+                    statusEl.textContent = copied
+                        ? 'Message auto-copied to clipboard and WhatsApp opened—paste into chat if the text box does not pre-fill.'
+                        : 'Opening WhatsApp—copy your message from the preview box above if needed.';
+                    statusEl.classList.remove('hidden');
+                }
+                window.open(waUrl, '_blank', 'noopener,noreferrer');
+            });
         }
+
+        function setMissedWindows(count) {
+            missedWindowsCount = count;
+            document.querySelectorAll('.mw-btn').forEach(btn => {
+                const mwVal = parseInt(btn.getAttribute('data-mw'), 10);
+                if (mwVal === count) {
+                    btn.className = "mw-btn px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/25 text-amber-200 border border-amber-400/50";
+                } else {
+                    btn.className = "mw-btn px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-900/80 text-amber-200/70 border border-amber-500/20";
+                }
+            });
+            updateCalculator();
+        }
+
+        function clearSignUpFields() {
+            ['signup-fullname', 'signup-whatsapp', 'signup-momo'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            const statusEl = document.getElementById('whatsapp-action-status');
+            if (statusEl) statusEl.classList.add('hidden');
+            updateWhatsAppPreview();
+        }
+
+        function syncThemeControls(theme) {
+            document.querySelectorAll('.icon-theme-toggle').forEach(icon => {
+                icon.className = theme === 'light'
+                    ? "fa-solid fa-moon text-indigo-400 icon-theme-toggle"
+                    : "fa-solid fa-sun text-amber-400 icon-theme-toggle";
+            });
+            document.querySelectorAll('.label-theme-toggle').forEach(label => {
+                label.innerText = theme === 'light' ? "Dark Mode" : "Light Mode";
+            });
+        }
+
+        function toggleTheme() {
+            const root = document.documentElement;
+            const current = root.getAttribute('data-theme') || 'dark';
+            const next = current === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            syncThemeControls(next);
+        }
+
+        // Initialize
+        updateCalculator();
     </script>
 </body>
 </html>
